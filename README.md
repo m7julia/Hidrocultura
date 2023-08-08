@@ -1,16 +1,11 @@
 # flutter_hidrocultura
 
-A new Flutter project.
+Projeto de Trabalho de conclusão de curso desenvolvido no Visual Studio Code.
 
-## Getting Started
+Data de início: 13/02/2023
+Data de término:
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Autores:
+Felipe Stolze Vazquez;
+Maria Alice Ferreira Pereira;
+Maria Júlia Hofstetter Trevisan Pereira.

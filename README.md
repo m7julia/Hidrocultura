@@ -2,10 +2,10 @@
 
 Projeto de Trabalho de conclusão de curso desenvolvido no Visual Studio Code.
 
-Data de início: 13/02/2023
+Data de início: 13/02/2023 <br/>
 Data de término:
 
 Autores:
-Felipe Stolze Vazquez;
-Maria Alice Ferreira Pereira;
+Felipe Stolze Vazquez;  <br/>
+Maria Alice Ferreira Pereira;  <br/>
 Maria Júlia Hofstetter Trevisan Pereira.

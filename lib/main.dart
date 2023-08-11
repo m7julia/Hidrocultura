@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hidrocultura/pages/primPassos.dart';
 import 'package:flutter_hidrocultura/pages/quest1.dart';
 import 'package:flutter_hidrocultura/pages/quest2.dart';
 
@@ -12,7 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "HidroCultura",
       debugShowCheckedModeBanner: false,
-      home: quest2(), //Home(),
+      home: Questinario1(),
+      routes: {
+        'quest1': (context) => Questinario1(),
+        'quest2': (context) => Questinario2(),
+        'primPassos': (context) => PrimeirosPassos(),
+      },
     );
   }
 }
@@ -27,7 +33,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       //header
-      backgroundColor: Color.fromARGB(255, 210, 231, 194), //fundo
+      body: Center(
+        child: Image(image: AssetImage('assets/gota.png')),
+      ),
     );
   }
 }
+
+//certo

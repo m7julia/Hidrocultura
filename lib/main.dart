@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hidrocultura/pages/germinando.dart';
+import 'package:flutter_hidrocultura/pages/inicial.dart';
+import 'package:flutter_hidrocultura/pages/jaGerminou1.dart';
 import 'package:flutter_hidrocultura/pages/primPassos.dart';
 import 'package:flutter_hidrocultura/pages/quest1.dart';
 import 'package:flutter_hidrocultura/pages/quest2.dart';
@@ -13,11 +16,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "HidroCultura",
       debugShowCheckedModeBanner: false,
-      home: Questinario1(),
+      home: Questionario1(),
       routes: {
-        'quest1': (context) => Questinario1(),
-        'quest2': (context) => Questinario2(),
+        'quest1': (context) => Questionario1(),
+        'quest2': (context) => Questionario2(),
         'primPassos': (context) => PrimeirosPassos(),
+        'jaGerminou1': (context) => JaGerminou1(),
+        'germinando': (context) => Germinando(),
+        'inicial': (context) => Inicial(),
       },
     );
   }
@@ -39,5 +45,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-//certo

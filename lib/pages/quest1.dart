@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
 
-class Questinario1 extends StatelessWidget {
+class Questionario1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

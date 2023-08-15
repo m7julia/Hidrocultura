@@ -91,6 +91,8 @@ flutter:
     - assets/tomate.png
     - assets/morango.png
     - assets/alface.png
+    - assets/germinando.png
+    - assets/jaGerminei.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Questinario2 extends StatelessWidget {
+class Questionario2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -147,7 +147,6 @@ class Questinario2 extends StatelessWidget {
                   ),
                 ),
               ),
-
               SizedBox(
                 width: 120,
                 height: 50,
@@ -156,7 +155,7 @@ class Questinario2 extends StatelessWidget {
                     Navigator.pushNamed(context, 'quest1');
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 180,220,156),
+                    primary: Color.fromARGB(255, 180, 220, 156),
                     onPrimary: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),

@@ -78,7 +78,7 @@ class Questionario2 extends StatelessWidget {
                 height: 80,
                 child: ElevatedButton(
                   onPressed: () {
-                    print('pressionado');
+                    Navigator.pushNamed(context, 'jaGerminouPP');
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Color.fromARGB(255, 251, 255, 240),

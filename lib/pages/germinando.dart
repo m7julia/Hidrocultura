@@ -40,11 +40,11 @@ class Germinando extends StatelessWidget {
                     style: TextStyle(fontSize: 14),
                   ),
                   SizedBox(
-                      width: 150,
-                      height: 60,
+                      width: 170,
+                      height: 40,
                       child: ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, 'jaGerminou1');
+                            Navigator.pushNamed(context, 'jaGerminouPP');
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Color.fromARGB(255, 180, 220, 156),
@@ -58,8 +58,9 @@ class Germinando extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 "Já germinou!",
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 18,
                                 ),
                               ),
                             ),

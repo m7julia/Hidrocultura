@@ -95,6 +95,13 @@ flutter:
     - assets/jaGerminei.png
     - assets/espumafenolica.jpeg
     - assets/jardineiroTriste.png
+    - assets/icon_camera.png
+    - assets/icon_co2.png
+    - assets/icon_luminosidade.png
+    - assets/icon_ph.png
+    - assets/icon_temperatura.png
+    - assets/icon_umidade.png
+    - assets/atencao.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

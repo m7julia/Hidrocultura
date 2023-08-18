@@ -5,7 +5,8 @@ import 'package:flutter_hidrocultura/pages/jaGerminouPP.dart';
 import 'package:flutter_hidrocultura/pages/primPassos.dart';
 import 'package:flutter_hidrocultura/pages/quest1.dart';
 import 'package:flutter_hidrocultura/pages/quest2.dart';
-import 'package:flutter_hidrocultura/pages/jaGerminou.dart';
+import 'package:flutter_hidrocultura/pages/jaGerminei.dart';
+import 'package:flutter_hidrocultura/pages/problemasistema.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
         'quest1': (context) => Questionario1(),
         'quest2': (context) => Questionario2(),
         'primPassos': (context) => PrimeirosPassos(),
-        'jaGerminou': (context) => JaGerminou(),
+        'jaGerminei': (context) => JaGerminei(),
         'germinando': (context) => Germinando(),
         'inicial': (context) => Inicial(),
         'jaGerminouPP': (context) => JaGerminouPP(),
+        'problemasistema':(context) => ProblemaSistema(),
       },
     );
   }

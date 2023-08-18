@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
 
@@ -12,7 +14,7 @@ class JaGerminouPP extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                  Card(
+                   Card(
                     elevation: 0,
                     color: Colors.transparent,
                     surfaceTintColor: Colors.white,
@@ -23,7 +25,7 @@ class JaGerminouPP extends StatelessWidget {
                           child: Column(
                             children: <Widget>[
                               SizedBox(
-                                height: 40,
+                                height: 60,
                               ),
                               Text(
                                 'Aplicação na estrutura',
@@ -31,8 +33,96 @@ class JaGerminouPP extends StatelessWidget {
                                 style: TextStyle(fontSize: 25),
                               ),
                               SizedBox(
-                                height: 20,
+                                // aviso
+                                height: 30,
                               ),
+                              SizedBox(
+                                width: 350,
+                                height: 40,
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 0,
+                                    primary: Color.fromARGB(126, 249, 221, 96),
+                                    onPrimary:
+                                        Color.fromARGB(255, 255, 169, 71),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Image(
+                                        image: AssetImage('assets/atencao.png'),
+                                        height: 25,
+                                        width: 25,
+                                      ),
+                                      Text(
+                                        "Dissolva a solução nutritiva na água.",
+                                        style: TextStyle(
+                                          fontSize: 10,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              SizedBox(
+                                width: 350,
+                                height: 40,
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 0,
+                                    primary: Color.fromARGB(126, 249, 221, 96),
+                                    onPrimary:
+                                        Color.fromARGB(255, 255, 169, 71),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Image(
+                                        image: AssetImage('assets/atencao.png'),
+                                        height: 25,
+                                        width: 25,
+                                      ),
+                                      Text(
+                                        "Verifique se o sistema já está em funcionamento  ",
+                                        style: TextStyle(
+                                          fontSize: 8,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                    Navigator.pushNamed(context, 'problemasistema');
+                                  },
+                                child: const Text('Problemas com o Sistema', style: TextStyle(fontSize: 14),),
+                                style: ElevatedButton.styleFrom(
+                                    onPrimary: Colors.red,
+                                  ),
+                                ),
                               Text(
                                 'Espuma Fenólica:',
                                 textAlign: TextAlign.justify,
@@ -101,28 +191,7 @@ class JaGerminouPP extends StatelessWidget {
                                       ] //Row
                                           ))),
                                           SizedBox(height: 20,),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              SizedBox(
-                                width: 120,
-                                height: 40,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, 'germinando');
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Color.fromARGB(255, 180, 220, 156),
-                                    onPrimary: Colors.black,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                    ),
-                                  ),
-                                  child: Text('Anterior',
-                                      style: TextStyle(fontSize: 18)),
-                                ),
-                              ),
-
+                              
                              
                             ],
                           ),

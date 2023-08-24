@@ -8,6 +8,9 @@ import 'package:flutter_hidrocultura/pages/quest2.dart';
 import 'package:flutter_hidrocultura/pages/jaGerminei.dart';
 import 'package:flutter_hidrocultura/pages/problemasistema.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/temperatura.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/luminosidade.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/umidade.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/ph.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,6 +33,9 @@ class MyApp extends StatelessWidget {
         'jaGerminouPP': (context) => JaGerminouPP(),
         'problemasistema': (context) => ProblemaSistema(),
         'temperatura': (context) => Temperatura(),
+        'luminosidade': (context) => Luminosidade(),
+        'umidade': (context) => Umidade(),
+        'ph': (context) => Ph(),
       },
     );
   }

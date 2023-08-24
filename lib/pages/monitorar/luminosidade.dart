@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class Temperatura extends StatefulWidget {
+class Luminosidade extends StatefulWidget {
   @override
-  _TemperaturaState createState() => _TemperaturaState();
+  _LuminosidadeState createState() => _LuminosidadeState();
 }
 
-class _TemperaturaState extends State<Temperatura> {
-  List<TemperaturaData> _chartData = [];
+class _LuminosidadeState extends State<Luminosidade> {
+  List<LuminosidadeData> _chartData = [];
 
   @override
   void initState() {
@@ -37,7 +37,7 @@ class _TemperaturaState extends State<Temperatura> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'luminosidade');
+                              Navigator.pushNamed(context, 'ph');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -57,7 +57,7 @@ class _TemperaturaState extends State<Temperatura> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'inicial');
+                              Navigator.pushNamed(context, 'temperatura');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -75,14 +75,14 @@ class _TemperaturaState extends State<Temperatura> {
                 ),
                 SizedBox(height: 10),
                 Image.asset(
-                  'assets/icon_temperatura.png',
+                  'assets/icon_luminosidade.png',
                   width: 150,
                   height: 150,
                   fit: BoxFit.cover,
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Temperatura: 22°C',
+                  'Lu7minosidade: 2.500 lux',
                   style: TextStyle(fontSize: 25),
                 ),
                 SizedBox(height: 10),
@@ -113,7 +113,7 @@ class _TemperaturaState extends State<Temperatura> {
                 ),
                 SizedBox(height: 30),
                 Text(
-                  'Estes foram os níveis de luz do ambiente da planta nos últimos tempos:',
+                  'Estes foram os níveis de luminosidade do ambiente da planta nos últimos tempos:',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 16),
                 ),
@@ -122,11 +122,11 @@ class _TemperaturaState extends State<Temperatura> {
                 SfCartesianChart(
                     //Esse é o grafico hein
                     primaryXAxis: CategoryAxis(),
-                    series: <LineSeries<TemperaturaData, String>>[
-                      LineSeries<TemperaturaData, String>(
+                    series: <LineSeries<LuminosidadeData, String>>[
+                      LineSeries<LuminosidadeData, String>(
                           dataSource: _chartData,
-                          xValueMapper: (TemperaturaData temp, _) => temp.dias,
-                          yValueMapper: (TemperaturaData temp, _) => temp.temp)
+                          xValueMapper: (LuminosidadeData lum, _) => lum.dias,
+                          yValueMapper: (LuminosidadeData lum, _) => lum.lum)
                     ]),
                 SizedBox(height: 30),
 
@@ -196,7 +196,7 @@ class _TemperaturaState extends State<Temperatura> {
                 ),
                 SizedBox(height: 30),
                 Text(
-                  'Após a germinação, quando as mudas começam a crescer, a temperatura ideal é de cerca de 18 a 21 graus Celsius. Nessa fase, é importante fornecer temperaturas mais frescas para incentivar o enraizamento adequado e um crescimento saudável das mudas.',
+                  'À medida que as mudas de alface começam a crescer, é necessário aumentar a intensidade da luz. Recomenda-se uma luminosidade de cerca de 2.000 a 3.000 lux.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),
                 ),
@@ -206,20 +206,20 @@ class _TemperaturaState extends State<Temperatura> {
         ));
   }
 
-  List<TemperaturaData> getChartData() {
-    final List<TemperaturaData> chartData = [
-      TemperaturaData(28, 'Dia 1'),
-      TemperaturaData(26, 'Dia 2'),
-      TemperaturaData(24, 'Dia 3'),
-      TemperaturaData(22, 'Dia 4'),
-      TemperaturaData(28, 'Dia 5'),
+  List<LuminosidadeData> getChartData() {
+    final List<LuminosidadeData> chartData = [
+      LuminosidadeData(2800, 'Dia 1'),
+      LuminosidadeData(2660, 'Dia 2'),
+      LuminosidadeData(2400, 'Dia 3'),
+      LuminosidadeData(2200, 'Dia 4'),
+      LuminosidadeData(2800, 'Dia 5'),
     ];
     return chartData;
   }
 }
 
-class TemperaturaData {
-  TemperaturaData(this.temp, this.dias);
-  final double temp;
+class LuminosidadeData {
+  LuminosidadeData(this.lum, this.dias);
+  final double lum;
   final String dias;
 }

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class Temperatura extends StatefulWidget {
+class Ph extends StatefulWidget {
   @override
-  _TemperaturaState createState() => _TemperaturaState();
+  _PhState createState() => _PhState();
 }
 
-class _TemperaturaState extends State<Temperatura> {
-  List<TemperaturaData> _chartData = [];
+class _PhState extends State<Ph> {
+  List<PhData> _chartData = [];
 
   @override
   void initState() {
@@ -37,7 +37,7 @@ class _TemperaturaState extends State<Temperatura> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'luminosidade');
+                              Navigator.pushNamed(context, '');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -57,7 +57,7 @@ class _TemperaturaState extends State<Temperatura> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'inicial');
+                              Navigator.pushNamed(context, '');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -75,14 +75,14 @@ class _TemperaturaState extends State<Temperatura> {
                 ),
                 SizedBox(height: 10),
                 Image.asset(
-                  'assets/icon_temperatura.png',
+                  'assets/icon_ph.png',
                   width: 150,
                   height: 150,
                   fit: BoxFit.cover,
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Temperatura: 22°C',
+                  'Ph 6,2',
                   style: TextStyle(fontSize: 25),
                 ),
                 SizedBox(height: 10),
@@ -113,7 +113,7 @@ class _TemperaturaState extends State<Temperatura> {
                 ),
                 SizedBox(height: 30),
                 Text(
-                  'Estes foram os níveis de luz do ambiente da planta nos últimos tempos:',
+                  'Estes foram os níveis de PH do ambiente da planta nos últimos tempos:',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 16),
                 ),
@@ -122,11 +122,11 @@ class _TemperaturaState extends State<Temperatura> {
                 SfCartesianChart(
                     //Esse é o grafico hein
                     primaryXAxis: CategoryAxis(),
-                    series: <LineSeries<TemperaturaData, String>>[
-                      LineSeries<TemperaturaData, String>(
+                    series: <LineSeries<PhData, String>>[
+                      LineSeries<PhData, String>(
                           dataSource: _chartData,
-                          xValueMapper: (TemperaturaData temp, _) => temp.dias,
-                          yValueMapper: (TemperaturaData temp, _) => temp.temp)
+                          xValueMapper: (PhData ph, _) => ph.dias,
+                          yValueMapper: (PhData ph, _) => ph.ph)
                     ]),
                 SizedBox(height: 30),
 
@@ -196,7 +196,7 @@ class _TemperaturaState extends State<Temperatura> {
                 ),
                 SizedBox(height: 30),
                 Text(
-                  'Após a germinação, quando as mudas começam a crescer, a temperatura ideal é de cerca de 18 a 21 graus Celsius. Nessa fase, é importante fornecer temperaturas mais frescas para incentivar o enraizamento adequado e um crescimento saudável das mudas.',
+                  'Durante o estágio inicial de crescimento das mudas, o pH recomendado é de 5,8 a 6,2. Manter o pH nessa faixa ajuda a garantir a absorção adequada de nutrientes essenciais para o desenvolvimento das raízes e o crescimento das folhas.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),
                 ),
@@ -206,20 +206,20 @@ class _TemperaturaState extends State<Temperatura> {
         ));
   }
 
-  List<TemperaturaData> getChartData() {
-    final List<TemperaturaData> chartData = [
-      TemperaturaData(28, 'Dia 1'),
-      TemperaturaData(26, 'Dia 2'),
-      TemperaturaData(24, 'Dia 3'),
-      TemperaturaData(22, 'Dia 4'),
-      TemperaturaData(28, 'Dia 5'),
+  List<PhData> getChartData() {
+    final List<PhData> chartData = [
+      PhData(6.2, 'Dia 1'),
+      PhData(4.0, 'Dia 2'),
+      PhData(2.4, 'Dia 3'),
+      PhData(2.8, 'Dia 4'),
+      PhData(6.0, 'Dia 5'),
     ];
     return chartData;
   }
 }
 
-class TemperaturaData {
-  TemperaturaData(this.temp, this.dias);
-  final double temp;
+class PhData {
+  PhData(this.ph, this.dias);
+  final double ph;
   final String dias;
 }

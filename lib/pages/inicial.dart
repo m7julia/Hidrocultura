@@ -142,7 +142,7 @@ class _InicialState extends State<Inicial> {
                       Expanded(
                           child: ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'germinando');
+                                Navigator.pushNamed(context, 'luminosidade');
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
@@ -185,7 +185,7 @@ class _InicialState extends State<Inicial> {
                       Expanded(
                           child: ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'germinando');
+                                Navigator.pushNamed(context, 'ph');
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
@@ -268,7 +268,7 @@ class _InicialState extends State<Inicial> {
                       Expanded(
                           child: ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'germinando');
+                                Navigator.pushNamed(context, 'umidade');
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),

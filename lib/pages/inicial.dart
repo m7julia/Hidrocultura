@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Inicial extends StatefulWidget {
   @override
@@ -32,26 +35,80 @@ class _InicialState extends State<Inicial> {
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 25),
                             ),
+                            Container(
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  //primary: Color.fromARGB(126, 249, 221, 96),
+                                  onPrimary: Color.fromARGB(255, 19, 73, 25),
+                                  primary: Color.fromARGB(255, 210, 231, 194),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Image(
+                                      image: AssetImage('assets/alface.png'),
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                    Text(
+                                      "Plantação de Alface",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              child: ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  //primary: Color.fromARGB(126, 249, 221, 96),
+                                  onPrimary: Color.fromARGB(255, 19, 73, 25),
+                                  primary: Color.fromARGB(255, 210, 231, 194),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      "Estágio inicial de Crescimento",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
                     ],
                   ),
                 ),
-                Card(
-                  elevation: 0,
+                SizedBox(
+                  width: 300,
+                  height: 130,
+                  /*elevation: 0,
                   color: Colors.transparent,
-                  surfaceTintColor: Colors.white,
+                  surfaceTintColor: Colors.white,*/
+
                   child: Row(
                     children: <Widget>[
                       Expanded(
                           child: ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'germinando');
+                                Navigator.pushNamed(context, 'temperatura');
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Color.fromARGB(255, 30, 30, 30),
+                                onPrimary: Colors.black54,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -67,7 +124,7 @@ class _InicialState extends State<Inicial> {
                                   "Temperatura",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 12,
                                   ),
                                 ),
                                 Text(
@@ -89,15 +146,15 @@ class _InicialState extends State<Inicial> {
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Color.fromARGB(255, 30, 30, 30),
+                                onPrimary: Colors.black54,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
                               child: Column(children: [
                                 Image(
-                                  image:
-                                      AssetImage('assets/icon_luminosidade.png'),
+                                  image: AssetImage(
+                                      'assets/icon_luminosidade.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -105,7 +162,7 @@ class _InicialState extends State<Inicial> {
                                   "Luminosidade",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 12,
                                   ),
                                 ),
                                 Text(
@@ -120,14 +177,11 @@ class _InicialState extends State<Inicial> {
                     ],
                   ),
                 ),
-                Card(
-                    elevation: 0,
-                    color: Colors.transparent,
-                    surfaceTintColor: Colors.white,
-                    child: Row(children: <Widget>[
-                      Container(
-                        width: 40,
-                      ),
+                SizedBox(
+                  width: 300,
+                  height: 130,
+                  child: Row(
+                    children: <Widget>[
                       Expanded(
                           child: ElevatedButton(
                               onPressed: () {
@@ -135,15 +189,14 @@ class _InicialState extends State<Inicial> {
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Color.fromARGB(255, 30, 30, 30),
+                                onPrimary: Colors.black54,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
                               child: Column(children: [
                                 Image(
-                                  image:
-                                      AssetImage('assets/icon_ph.png'),
+                                  image: AssetImage('assets/icon_ph.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -151,7 +204,7 @@ class _InicialState extends State<Inicial> {
                                   "PH",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 12,
                                   ),
                                 ),
                                 Text(
@@ -173,15 +226,14 @@ class _InicialState extends State<Inicial> {
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Color.fromARGB(255, 30, 30, 30),
+                                onPrimary: Colors.black54,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
                               child: Column(children: [
                                 Image(
-                                  image:
-                                      AssetImage('assets/icon_co2.png'),
+                                  image: AssetImage('assets/icon_co2.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -189,7 +241,7 @@ class _InicialState extends State<Inicial> {
                                   "CO2",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 12,
                                   ),
                                 ),
                                 Text(
@@ -199,16 +251,20 @@ class _InicialState extends State<Inicial> {
                                     fontSize: 20,
                                   ),
                                 ), //Tex
-                              ])))
-                    ])),
-                Card(
-                    elevation: 0,
-                    color: Colors.transparent,
-                    surfaceTintColor: Colors.white,
-                    child: Row(children: <Widget>[
-                      Container(
-                        width: 40,
-                      ),
+                              ] //Row
+                                  ))),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 300,
+                  height: 130,
+                  /*elevation: 0,
+                  color: Colors.transparent,
+                  surfaceTintColor: Colors.white,*/
+
+                  child: Row(
+                    children: <Widget>[
                       Expanded(
                           child: ElevatedButton(
                               onPressed: () {
@@ -216,15 +272,14 @@ class _InicialState extends State<Inicial> {
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Color.fromARGB(255, 30, 30, 30),
+                                onPrimary: Colors.black54,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
                               child: Column(children: [
                                 Image(
-                                  image:
-                                      AssetImage('assets/icon_umidade.png'),
+                                  image: AssetImage('assets/icon_umidade.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -232,7 +287,7 @@ class _InicialState extends State<Inicial> {
                                   "Umidade",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 12,
                                   ),
                                 ),
                                 Text(
@@ -254,15 +309,14 @@ class _InicialState extends State<Inicial> {
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Color.fromARGB(255, 30, 30, 30),
+                                onPrimary: Colors.black54,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
                               child: Column(children: [
                                 Image(
-                                  image:
-                                      AssetImage('assets/icon_camera.png'),
+                                  image: AssetImage('assets/icon_camera.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -270,13 +324,14 @@ class _InicialState extends State<Inicial> {
                                   "Verificar estado",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 20,
                                   ),
-                                ), //Text
-                              ]))), //collumn
-                    ]) //expanded
-
-                    )
+                                ), //Tex
+                              ] //Row
+                                  ))),
+                    ],
+                  ),
+                ),
               ]),
         ),
       ),

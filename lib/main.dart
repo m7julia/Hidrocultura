@@ -7,6 +7,7 @@ import 'package:flutter_hidrocultura/pages/quest1.dart';
 import 'package:flutter_hidrocultura/pages/quest2.dart';
 import 'package:flutter_hidrocultura/pages/jaGerminei.dart';
 import 'package:flutter_hidrocultura/pages/problemasistema.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/temperatura.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "HidroCultura",
       debugShowCheckedModeBanner: false,
-      home: Questionario1(),
+      home: Inicial(),
       routes: {
         'quest1': (context) => Questionario1(),
         'quest2': (context) => Questionario2(),
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         'germinando': (context) => Germinando(),
         'inicial': (context) => Inicial(),
         'jaGerminouPP': (context) => JaGerminouPP(),
-        'problemasistema':(context) => ProblemaSistema(),
+        'problemasistema': (context) => ProblemaSistema(),
+        'temperatura': (context) => Temperatura(),
       },
     );
   }

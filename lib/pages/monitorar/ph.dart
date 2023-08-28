@@ -37,7 +37,7 @@ class _PhState extends State<Ph> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '');
+                              Navigator.pushNamed(context, 'luminosidade');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -47,7 +47,7 @@ class _PhState extends State<Ph> {
                             child: Icon(
                               Icons.arrow_back_ios_new_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
-                              size: 30.0,
+                              size: 15.0,
                             )),
                       ),
                       Container(
@@ -57,7 +57,7 @@ class _PhState extends State<Ph> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '');
+                              Navigator.pushNamed(context, 'co2');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -67,7 +67,7 @@ class _PhState extends State<Ph> {
                             child: Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
-                              size: 30.0,
+                              size: 15.0,
                             )),
                       ),
                     ],

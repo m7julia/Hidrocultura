@@ -11,6 +11,7 @@ import 'package:flutter_hidrocultura/pages/monitorar/temperatura.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/luminosidade.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/umidade.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/ph.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/co2.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "HidroCultura",
       debugShowCheckedModeBanner: false,
-      home: Inicial(),
+      home: Questionario1(),
       routes: {
         'quest1': (context) => Questionario1(),
         'quest2': (context) => Questionario2(),
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         'luminosidade': (context) => Luminosidade(),
         'umidade': (context) => Umidade(),
         'ph': (context) => Ph(),
+        'co2': (context) => Co2(),
       },
     );
   }

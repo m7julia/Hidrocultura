@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class Umidade extends StatefulWidget {
+class Co2 extends StatefulWidget {
   @override
-  _UmidadeState createState() => _UmidadeState();
+  _Co2State createState() => _Co2State();
 }
 
-class _UmidadeState extends State<Umidade> {
-  List<UmidadeData> _chartData = [];
+class _Co2State extends State<Co2> {
+  List<Co2Data> _chartData = [];
 
   @override
   void initState() {
@@ -37,7 +37,7 @@ class _UmidadeState extends State<Umidade> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'co2');
+                              Navigator.pushNamed(context, 'ph');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -57,7 +57,7 @@ class _UmidadeState extends State<Umidade> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'temperatura');
+                              Navigator.pushNamed(context, 'umidade');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -75,14 +75,14 @@ class _UmidadeState extends State<Umidade> {
                 ),
                 SizedBox(height: 10),
                 Image.asset(
-                  'assets/icon_umidade.png',
+                  'assets/icon_co2.png',
                   width: 150,
                   height: 150,
                   fit: BoxFit.cover,
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Umidade: 60%',
+                  'CO2: 1220ppm',
                   style: TextStyle(fontSize: 25),
                 ),
                 SizedBox(height: 10),
@@ -113,7 +113,7 @@ class _UmidadeState extends State<Umidade> {
                 ),
                 SizedBox(height: 30),
                 Text(
-                  'Estes foram os níveis de luz de umidade do ambiente da planta nos últimos tempos:',
+                  'Estes foram os níveis de CO2 do ambiente da planta nos últimos tempos:',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 16),
                 ),
@@ -122,11 +122,11 @@ class _UmidadeState extends State<Umidade> {
                 SfCartesianChart(
                     //Esse é o grafico hein
                     primaryXAxis: CategoryAxis(),
-                    series: <LineSeries<UmidadeData, String>>[
-                      LineSeries<UmidadeData, String>(
+                    series: <LineSeries<Co2Data, String>>[
+                      LineSeries<Co2Data, String>(
                           dataSource: _chartData,
-                          xValueMapper: (UmidadeData temp, _) => temp.dias,
-                          yValueMapper: (UmidadeData temp, _) => temp.temp)
+                          xValueMapper: (Co2Data co2, _) => co2.dias,
+                          yValueMapper: (Co2Data co2, _) => co2.co2)
                     ]),
                 SizedBox(height: 30),
 
@@ -158,7 +158,7 @@ class _UmidadeState extends State<Umidade> {
                       Expanded(
                           child: ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'umidade');
+                                Navigator.pushNamed(context, 'temperatura');
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.transparent,
@@ -196,7 +196,7 @@ class _UmidadeState extends State<Umidade> {
                 ),
                 SizedBox(height: 30),
                 Text(
-                  'A medida que as mudas começam a crescer, a umidade relativa do ar pode ser ligeiramente reduzida para incentivar o desenvlvimento de raízes saudáveis e minimizar o risco de doenças fúngicas. Umaumidade relativa do ar de cerca de 60% a 70% é adequada para essa fase.',
+                  'À medida que as mudas crescem, é recomendado manter os níveis de CO2 entre 1.000 a 1.200 ppm.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),
                 ),
@@ -206,20 +206,20 @@ class _UmidadeState extends State<Umidade> {
         ));
   }
 
-  List<UmidadeData> getChartData() {
-    final List<UmidadeData> chartData = [
-      UmidadeData(28, 'Dia 1'),
-      UmidadeData(26, 'Dia 2'),
-      UmidadeData(24, 'Dia 3'),
-      UmidadeData(22, 'Dia 4'),
-      UmidadeData(28, 'Dia 5'),
+  List<Co2Data> getChartData() {
+    final List<Co2Data> chartData = [
+      Co2Data(1200, 'Dia 1'),
+      Co2Data(1200, 'Dia 2'),
+      Co2Data(1220, 'Dia 3'),
+      Co2Data(1250, 'Dia 4'),
+      Co2Data(1300, 'Dia 5'),
     ];
     return chartData;
   }
 }
 
-class UmidadeData {
-  UmidadeData(this.temp, this.dias);
-  final double temp;
+class Co2Data {
+  Co2Data(this.co2, this.dias);
+  final double co2;
   final String dias;
 }

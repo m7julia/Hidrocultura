@@ -37,7 +37,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'ph');
+                              Navigator.pushNamed(context, 'temperatura');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -47,7 +47,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                             child: Icon(
                               Icons.arrow_back_ios_new_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
-                              size: 30.0,
+                              size: 15.0,
                             )),
                       ),
                       Container(
@@ -57,7 +57,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                         flex: 1,
                         child: ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'temperatura');
+                              Navigator.pushNamed(context, 'ph');
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 180, 220, 156),
@@ -67,7 +67,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                             child: Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
-                              size: 30.0,
+                              size: 15.0,
                             )),
                       ),
                     ],
@@ -82,7 +82,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Lu7minosidade: 2.500 lux',
+                  'Luminosidade: 2.500 lux',
                   style: TextStyle(fontSize: 25),
                 ),
                 SizedBox(height: 10),

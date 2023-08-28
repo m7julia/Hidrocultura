@@ -35,6 +35,9 @@ class _InicialState extends State<Inicial> {
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 25),
                             ),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Container(
                               child: ElevatedButton(
                                 onPressed: () {},
@@ -79,7 +82,7 @@ class _InicialState extends State<Inicial> {
                                     Text(
                                       "Estágio inicial de Crescimento",
                                       style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 16,
                                       ),
                                     ),
                                   ],
@@ -222,7 +225,7 @@ class _InicialState extends State<Inicial> {
                       Expanded(
                           child: ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'germinando');
+                                Navigator.pushNamed(context, 'co2');
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),

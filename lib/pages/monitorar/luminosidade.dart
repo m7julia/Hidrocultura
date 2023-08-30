@@ -1,5 +1,10 @@
+import 'dart:io';
+
+import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
+import 'package:flutter_hidrocultura/pages/preview_page.dart';
+import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Luminosidade extends StatefulWidget {
@@ -9,6 +14,17 @@ class Luminosidade extends StatefulWidget {
 
 class _LuminosidadeState extends State<Luminosidade> {
   List<LuminosidadeData> _chartData = [];
+
+  File? arquivo;
+
+  showPreview(file) async {
+    file = await Get.to(() => PreviewPage(file: file));
+
+    if (file != null) {
+      setState(() => arquivo = file);
+      Get.back();
+    }
+  }
 
   @override
   void initState() {
@@ -157,9 +173,10 @@ class _LuminosidadeState extends State<Luminosidade> {
                       ),
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'temperatura');
-                              },
+                              onPressed: () => Get.to(
+                                    () => CameraCamera(
+                                        onFile: (file) => showPreview(file)),
+                                  ),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.transparent,
                                 foregroundColor: Colors.black,

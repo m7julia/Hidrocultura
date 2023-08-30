@@ -3,6 +3,7 @@
    <application
         android:label="HidroCultura"
         android:name="${applicationName}"
+        android:requestLegacyExternalStorage="true" 
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

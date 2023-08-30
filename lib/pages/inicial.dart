@@ -1,8 +1,12 @@
+import 'dart:io';
 import 'dart:ui';
 
+import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
+import 'package:flutter_hidrocultura/pages/preview_page.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:get/get.dart';
 
 class Inicial extends StatefulWidget {
   @override
@@ -10,6 +14,17 @@ class Inicial extends StatefulWidget {
 }
 
 class _InicialState extends State<Inicial> {
+  File? arquivo;
+
+  showPreview(file) async {
+    file = await Get.to(() => PreviewPage(file: file));
+
+    if (file != null) {
+      setState(() => arquivo = file);
+      Get.back();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -305,11 +320,13 @@ class _InicialState extends State<Inicial> {
                       Container(
                         width: 40,
                       ),
+                      //Botão verificar estado
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'germinando');
-                              },
+                              onPressed: () => Get.to(
+                                    () => CameraCamera(
+                                        onFile: (file) => showPreview(file)),
+                                  ),
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
                                 onPrimary: Colors.black54,

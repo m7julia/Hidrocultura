@@ -4,9 +4,10 @@ import 'dart:ui';
 import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
-import 'package:flutter_hidrocultura/pages/preview_page.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/preview_page.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:get/get.dart';
+import 'package:tflite_v2/tflite_v2.dart';
 
 class Inicial extends StatefulWidget {
   @override
@@ -15,14 +16,57 @@ class Inicial extends StatefulWidget {
 
 class _InicialState extends State<Inicial> {
   File? arquivo;
+  File? img;
 
   showPreview(file) async {
     file = await Get.to(() => PreviewPage(file: file));
+    img = file;
 
     if (file != null) {
       setState(() => arquivo = file);
       Get.back();
     }
+  }
+
+  Widget infoObjeto(BuildContext context) {
+    return new AlertDialog(
+      content: Scaffold(
+        body: Column(
+          children: [
+            Image.file(
+              File(img!.path),
+              fit: BoxFit.contain,
+            ),
+            _outputs != null
+                ? Text(
+                    _outputs![0]["label"],
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20.0,
+                    ),
+                  )
+                : Container()
+          ],
+        ),
+      ),
+    );
+  }
+
+  bool _loading = false;
+  List<dynamic>? _outputs;
+
+  classifyImage(imagem) async {
+    var out = await Tflite.runModelOnImage(
+        path: imagem.path,
+        numResults: 2,
+        threshold: 0.5,
+        imageMean: 127.5,
+        imageStd: 127.5);
+
+    setState(() {
+      _loading = false;
+      _outputs = out;
+    });
   }
 
   @override
@@ -323,10 +367,13 @@ class _InicialState extends State<Inicial> {
                       //Botão verificar estado
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () => Get.to(
-                                    () => CameraCamera(
-                                        onFile: (file) => showPreview(file)),
-                                  ),
+                              onPressed: () {
+                                Get.to(
+                                  () => CameraCamera(
+                                      onFile: (file) => showPreview(file)),
+                                );
+                                classifyImage(img);
+                              },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),
                                 onPrimary: Colors.black54,

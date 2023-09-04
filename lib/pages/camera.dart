@@ -1,17 +1,18 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 
-class CARALHO extends StatefulWidget {
-  const CARALHO({super.key});
+class Camera extends StatefulWidget {
+  const Camera({super.key});
 
   @override
-  State<CARALHO> createState() => _CARALHOState();
+  State<Camera> createState() => _CameraState();
 }
 
-class _CARALHOState extends State<CARALHO> {
+class _CameraState extends State<Camera> {
   Widget infoObjeto(BuildContext context) {
     return new AlertDialog(
       content: Scaffold(
@@ -29,7 +30,10 @@ class _CARALHOState extends State<CARALHO> {
                       fontSize: 20.0,
                     ),
                   )
-                : Container()
+                : Container(
+                    width: 140,
+                    height: 10,
+                  )
           ],
         ),
       ),
@@ -60,7 +64,7 @@ class _CARALHOState extends State<CARALHO> {
         setState(() {});
       }
     } else {
-      print("NO any camera found");
+      print("No any camera found");
     }
   }
 
@@ -121,15 +125,17 @@ class _CARALHOState extends State<CARALHO> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      body: SafeArea(
+      body: Padding(
+        padding: const EdgeInsets.all(0.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-                height: 200,
-                width: 200,
+                height: 770,
+                width: 450,
                 child: controller == null
                     ? Center(child: Text("Loading Camera..."))
                     : !controller!.value.isInitialized
@@ -137,38 +143,37 @@ class _CARALHOState extends State<CARALHO> {
                             child: CircularProgressIndicator(),
                           )
                         : CameraPreview(controller!)),
-            Align(
-              alignment: Alignment.topRight,
-              child: SizedBox(
-                height: 70,
-                width: 70,
-                child: ElevatedButton(
-                  onPressed: () async {
-                    try {
-                      if (controller != null) {
-                        await tirarFoto();
-                        classifyImage(imagem);
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) =>
-                                infoObjeto(context));
-                      }
-                    } catch (e) {
-                      print(e); //show error
+            SizedBox(
+              height: 70,
+              width: 70,
+              child: ElevatedButton(
+                onPressed: () async {
+                  try {
+                    if (controller != null) {
+                      await tirarFoto();
+                      classifyImage(imagem);
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) =>
+                              infoObjeto(context));
                     }
-                  },
-                  child: Text(''),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.transparent),
-                      shape: MaterialStateProperty.all<CircleBorder>(
-                          CircleBorder(
-                              side: BorderSide(
-                                  color: const Color.fromARGB(255, 34, 33, 33),
-                                  width: 2)))),
-                ),
+                  } catch (e) {
+                    print(e); //show error
+                  }
+                },
+                child: Text(''),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        Color.fromARGB(72, 255, 255, 255)),
+                    shape: MaterialStateProperty.all<CircleBorder>(CircleBorder(
+                        side: BorderSide(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            width: 2)))),
               ),
             ),
+            SizedBox(
+              height: 2,
+            )
           ],
         ),
       ),

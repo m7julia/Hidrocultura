@@ -15,60 +15,6 @@ class Inicial extends StatefulWidget {
 }
 
 class _InicialState extends State<Inicial> {
-  File? arquivo;
-  File? img;
-
-  showPreview(file) async {
-    file = await Get.to(() => PreviewPage(file: file));
-    img = file;
-
-    if (file != null) {
-      setState(() => arquivo = file);
-      Get.back();
-    }
-  }
-
-  Widget infoObjeto(BuildContext context) {
-    return new AlertDialog(
-      content: Scaffold(
-        body: Column(
-          children: [
-            Image.file(
-              File(img!.path),
-              fit: BoxFit.contain,
-            ),
-            _outputs != null
-                ? Text(
-                    _outputs![0]["label"],
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20.0,
-                    ),
-                  )
-                : Container()
-          ],
-        ),
-      ),
-    );
-  }
-
-  bool _loading = false;
-  List<dynamic>? _outputs;
-
-  classifyImage(imagem) async {
-    var out = await Tflite.runModelOnImage(
-        path: imagem.path,
-        numResults: 2,
-        threshold: 0.5,
-        imageMean: 127.5,
-        imageStd: 127.5);
-
-    setState(() {
-      _loading = false;
-      _outputs = out;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -368,11 +314,7 @@ class _InicialState extends State<Inicial> {
                       Expanded(
                           child: ElevatedButton(
                               onPressed: () {
-                                Get.to(
-                                  () => CameraCamera(
-                                      onFile: (file) => showPreview(file)),
-                                );
-                                classifyImage(img);
+                                Navigator.pushNamed(context, 'camera');
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 247, 255, 240),

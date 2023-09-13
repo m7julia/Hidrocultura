@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Luminosidade extends StatefulWidget {
+  const Luminosidade({super.key});
+
   @override
   _LuminosidadeState createState() => _LuminosidadeState();
 }
@@ -18,13 +20,13 @@ class _LuminosidadeState extends State<Luminosidade> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 210, 231, 194), //fundo
+        backgroundColor: const Color.fromARGB(255, 210, 231, 194), //fundo
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(30.0),
           child: Center(
             child: Column(
               children: <Widget>[
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Card(
                   //Botoes -->>
                   elevation: 0,
@@ -39,11 +41,10 @@ class _LuminosidadeState extends State<Luminosidade> {
                               Navigator.pushNamed(context, 'temperatura');
                             },
                             style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 180, 220, 156),
-                                onPrimary: Colors.black,
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.all(10)),
-                            child: Icon(
+                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(10)),
+                            child: const Icon(
                               Icons.arrow_back_ios_new_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
                               size: 15.0,
@@ -59,11 +60,10 @@ class _LuminosidadeState extends State<Luminosidade> {
                               Navigator.pushNamed(context, 'ph');
                             },
                             style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 180, 220, 156),
-                                onPrimary: Colors.black,
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.all(10)),
-                            child: Icon(
+                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(10)),
+                            child: const Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
                               size: 15.0,
@@ -72,34 +72,34 @@ class _LuminosidadeState extends State<Luminosidade> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Image.asset(
                   'assets/imagens/icon_luminosidade.png',
                   width: 150,
                   height: 150,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'Luminosidade: 2.500 lux',
                   style: TextStyle(fontSize: 25),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 // Está saudável!!!!!!
-                Container(
+                SizedBox(
                   height: 50,
                   width: 200,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Saudável!",
                         style: TextStyle(
                           fontSize: 25,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       Image.asset(
@@ -110,13 +110,13 @@ class _LuminosidadeState extends State<Luminosidade> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'Estes foram os níveis de luminosidade do ambiente da planta nos últimos tempos:',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 16),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 SfCartesianChart(
                     //Esse é o grafico hein
@@ -127,11 +127,11 @@ class _LuminosidadeState extends State<Luminosidade> {
                           xValueMapper: (LuminosidadeData lum, _) => lum.dias,
                           yValueMapper: (LuminosidadeData lum, _) => lum.lum)
                     ]),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
 
                 // Esse container é onde mostra o estágio da planta e tem o botão do lado
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 180, 220, 156),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   height: 90,
@@ -140,10 +140,10 @@ class _LuminosidadeState extends State<Luminosidade> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 25,
                       ),
-                      Text(
+                      const Text(
                         "Sua planta está no: \n"
                         "Estágio inicial de crescimento",
                         textAlign: TextAlign.center,
@@ -151,7 +151,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Expanded(
@@ -165,7 +165,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                               ),
-                              child: Column(children: [
+                              child: const Column(children: [
                                 SizedBox(
                                   height: 12,
                                 ),
@@ -192,8 +192,8 @@ class _LuminosidadeState extends State<Luminosidade> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'À medida que as mudas de alface começam a crescer, é necessário aumentar a intensidade da luz. Recomenda-se uma luminosidade de cerca de 2.000 a 3.000 lux.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),

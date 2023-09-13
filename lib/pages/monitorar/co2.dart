@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Co2 extends StatefulWidget {
+  const Co2({super.key});
+
   @override
   _Co2State createState() => _Co2State();
 }
@@ -19,13 +21,13 @@ class _Co2State extends State<Co2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 210, 231, 194), //fundo
+        backgroundColor: const Color.fromARGB(255, 210, 231, 194), //fundo
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(30.0),
           child: Center(
             child: Column(
               children: <Widget>[
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Card(
                   //Botoes -->>
                   elevation: 0,
@@ -40,11 +42,10 @@ class _Co2State extends State<Co2> {
                               Navigator.pushNamed(context, 'ph');
                             },
                             style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 180, 220, 156),
-                                onPrimary: Colors.black,
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.all(10)),
-                            child: Icon(
+                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(10)),
+                            child: const Icon(
                               Icons.arrow_back_ios_new_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
                               size: 15.0,
@@ -60,11 +61,10 @@ class _Co2State extends State<Co2> {
                               Navigator.pushNamed(context, 'umidade');
                             },
                             style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 180, 220, 156),
-                                onPrimary: Colors.black,
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.all(10)),
-                            child: Icon(
+                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(10)),
+                            child: const Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
                               size: 15.0,
@@ -73,34 +73,34 @@ class _Co2State extends State<Co2> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Image.asset(
                   'assets/imagens/icon_co2.png',
                   width: 150,
                   height: 150,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'CO2: 1220ppm',
                   style: TextStyle(fontSize: 25),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 // Está saudável!!!!!!
-                Container(
+                SizedBox(
                   height: 50,
                   width: 200,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Saudável!",
                         style: TextStyle(
                           fontSize: 25,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       Image.asset(
@@ -111,13 +111,13 @@ class _Co2State extends State<Co2> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'Estes foram os níveis de CO2 do ambiente da planta nos últimos tempos:',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 16),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 SfCartesianChart(
                     //Esse é o grafico hein
@@ -128,11 +128,11 @@ class _Co2State extends State<Co2> {
                           xValueMapper: (Co2Data co2, _) => co2.dias,
                           yValueMapper: (Co2Data co2, _) => co2.co2)
                     ]),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
 
                 // Esse container é onde mostra o estágio da planta e tem o botão do lado
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 180, 220, 156),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   height: 90,
@@ -141,10 +141,10 @@ class _Co2State extends State<Co2> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 25,
                       ),
-                      Text(
+                      const Text(
                         "Sua planta está no: \n"
                         "Estágio inicial de crescimento",
                         textAlign: TextAlign.center,
@@ -152,7 +152,7 @@ class _Co2State extends State<Co2> {
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Expanded(
@@ -166,7 +166,7 @@ class _Co2State extends State<Co2> {
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                               ),
-                              child: Column(children: [
+                              child: const Column(children: [
                                 SizedBox(
                                   height: 12,
                                 ),
@@ -193,8 +193,8 @@ class _Co2State extends State<Co2> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'À medida que as mudas crescem, é recomendado manter os níveis de CO2 entre 1.000 a 1.200 ppm.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),

@@ -1,13 +1,13 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_hidrocultura/main.dart';
 
 class JaGerminouPP extends StatelessWidget {
+  const JaGerminouPP({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 210, 231, 194), //fundo
+        backgroundColor: const Color.fromARGB(255, 210, 231, 194), //fundo
         body: SingleChildScrollView(
             padding: const EdgeInsets.all(30.0),
             child: Center(
@@ -24,15 +24,15 @@ class JaGerminouPP extends StatelessWidget {
                           flex: 4,
                           child: Column(
                             children: <Widget>[
-                              SizedBox(
+                              const SizedBox(
                                 height: 60,
                               ),
-                              Text(
+                              const Text(
                                 'Aplicação na estrutura',
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(fontSize: 25),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 // aviso
                                 height: 30,
                               ),
@@ -42,15 +42,12 @@ class JaGerminouPP extends StatelessWidget {
                                 child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
-                                    elevation: 0,
-                                    primary: Color.fromARGB(126, 249, 221, 96),
-                                    onPrimary:
-                                        Color.fromARGB(255, 255, 169, 71),
+                                    foregroundColor: const Color.fromARGB(255, 255, 169, 71), backgroundColor: const Color.fromARGB(126, 249, 221, 96), elevation: 0,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                   ),
-                                  child: Row(
+                                  child: const Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment:
@@ -73,7 +70,7 @@ class JaGerminouPP extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               SizedBox(
@@ -82,15 +79,12 @@ class JaGerminouPP extends StatelessWidget {
                                 child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
-                                    elevation: 0,
-                                    primary: Color.fromARGB(126, 249, 221, 96),
-                                    onPrimary:
-                                        Color.fromARGB(255, 255, 169, 71),
+                                    foregroundColor: const Color.fromARGB(255, 255, 169, 71), backgroundColor: const Color.fromARGB(126, 249, 221, 96), elevation: 0,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                   ),
-                                  child: Row(
+                                  child: const Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment:
@@ -113,7 +107,7 @@ class JaGerminouPP extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               TextButton(
@@ -121,49 +115,49 @@ class JaGerminouPP extends StatelessWidget {
                                   Navigator.pushNamed(
                                       context, 'problemasistema');
                                 },
+                                style: ElevatedButton.styleFrom(
+                                  foregroundColor: Colors.red,
+                                ),
                                 child: const Text(
                                   'Problemas com o Sistema',
                                   style: TextStyle(fontSize: 14),
                                 ),
-                                style: ElevatedButton.styleFrom(
-                                  onPrimary: Colors.red,
-                                ),
                               ),
-                              Text(
+                              const Text(
                                 'Espuma Fenólica:',
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(fontSize: 20),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                               Image.asset('assets/imagens/jaGerminei.png',
                                   width: 350, height: 250),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
-                              Text(
+                              const Text(
                                 '1. Assim que a planta apresentar o começo da germinação, posicione a espuma no sol, deixando sempre a espuma em um estado úmido;',
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(fontSize: 16),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
-                              Text(
+                              const Text(
                                 '2. Quando aparecer uma segunda folha, a muda estará pronta para ser transportada para o sistema;',
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(fontSize: 16),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
-                              Text(
+                              const Text(
                                 '3. Por último, posicione a unidade da espuma em um buraco presente no cano de suporte e espere a mágica acontecer.',
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(fontSize: 16),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 30,
                               ),
                               SizedBox(
@@ -174,16 +168,13 @@ class JaGerminouPP extends StatelessWidget {
                                         Navigator.pushNamed(context, 'inicial');
                                       },
                                       style: ElevatedButton.styleFrom(
-                                        primary:
-                                            Color.fromARGB(255, 180, 220, 156),
-                                        onPrimary:
-                                            Color.fromARGB(255, 30, 30, 30),
+                                        foregroundColor: const Color.fromARGB(255, 30, 30, 30), backgroundColor: const Color.fromARGB(255, 180, 220, 156),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(20),
                                         ),
                                       ),
-                                      child: Row(children: [
+                                      child: const Row(children: [
                                         Expanded(
                                           flex: 1,
                                           child: Text(
@@ -196,7 +187,7 @@ class JaGerminouPP extends StatelessWidget {
                                         ),
                                       ] //Row
                                           ))),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
                             ],

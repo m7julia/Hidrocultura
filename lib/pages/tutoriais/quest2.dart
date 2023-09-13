@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class Questionario2 extends StatelessWidget {
+  const Questionario2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 210, 231, 194), //fundo
+      backgroundColor: const Color.fromARGB(255, 210, 231, 194), //fundo
       body: Padding(
         padding: const EdgeInsets.all(50.0),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Card(
+              const Card(
                 elevation: 0,
                 color: Colors.transparent,
                 surfaceTintColor: Colors.white,
@@ -45,13 +47,12 @@ class Questionario2 extends StatelessWidget {
                     Navigator.pushNamed(context, 'primPassos');
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 251, 255, 240),
-                    onPrimary: Colors.black,
+                    foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 251, 255, 240),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Expanded(
                         flex: 1,
@@ -83,13 +84,12 @@ class Questionario2 extends StatelessWidget {
                     Navigator.pushNamed(context, 'jaGerminei');
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 251, 255, 240),
-                    onPrimary: Colors.black,
+                    foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 251, 255, 240),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Expanded(
                         flex: 1,
@@ -120,13 +120,12 @@ class Questionario2 extends StatelessWidget {
                     Navigator.pushNamed(context, 'inicial');
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 251, 255, 240),
-                    onPrimary: Colors.black,
+                    foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 251, 255, 240),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Expanded(
                         flex: 1,
@@ -157,13 +156,12 @@ class Questionario2 extends StatelessWidget {
                     Navigator.pushNamed(context, 'quest1');
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 180, 220, 156),
-                    onPrimary: Colors.black,
+                    foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  child: Text('Anterior', style: TextStyle(fontSize: 20)),
+                  child: const Text('Anterior', style: TextStyle(fontSize: 20)),
                 ),
               ),
             ],

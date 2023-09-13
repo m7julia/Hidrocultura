@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +13,48 @@ class Camera extends StatefulWidget {
 
 class _CameraState extends State<Camera> {
   Widget infoObjeto(BuildContext context) {
-    return new AlertDialog(
+    return AlertDialog(
       content: Scaffold(
-        body: Column(
+        body: Card(
+          elevation: 0,
+          color: Colors.transparent,
+          surfaceTintColor: Colors.white,
+          child: Column(
+            children: [
+              Image.file(
+                File(imagem!.path),
+                fit: BoxFit.contain,
+              ),
+              _outputs != null
+                  ? Text(
+                      _outputs![0]["label"],
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                      ),
+                    )
+                  : const SizedBox(
+                      width: 140,
+                      height: 10,
+                    )
+            ],
+          ),
+        ),
+      ),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.pop(context, 'Cancel'),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(context, 'OK'),
+          child: const Text('OK'),
+        ),
+      ],
+    );
+  }
+
+  /*Column(
           children: [
             Image.file(
               File(imagem!.path),
@@ -25,21 +63,17 @@ class _CameraState extends State<Camera> {
             _outputs != null
                 ? Text(
                     _outputs![0]["label"],
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 20.0,
                     ),
                   )
-                : Container(
+                : const SizedBox(
                     width: 140,
                     height: 10,
                   )
           ],
-        ),
-      ),
-    );
-  }
-
+        ),*/
   List<CameraDescription>? cameras = []; //list out the camera available
   CameraController? controller; //controller for camera
   XFile? image; //for captured image
@@ -74,11 +108,12 @@ class _CameraState extends State<Camera> {
     if (cameraController != null && cameraController.value.isInitialized) {
       try {
         XFile file = await cameraController.takePicture();
-        if (mounted)
+        if (mounted) {
           setState(() {
             imagem = file;
             img = File(file.path);
           });
+        }
       } on CameraException catch (e) {
         print(e.description);
       }
@@ -133,13 +168,13 @@ class _CameraState extends State<Camera> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
+            SizedBox(
                 height: 770,
                 width: 450,
                 child: controller == null
-                    ? Center(child: Text("Loading Camera..."))
+                    ? const Center(child: Text("Loading Camera..."))
                     : !controller!.value.isInitialized
-                        ? Center(
+                        ? const Center(
                             child: CircularProgressIndicator(),
                           )
                         : CameraPreview(controller!)),
@@ -161,17 +196,18 @@ class _CameraState extends State<Camera> {
                     print(e); //show error
                   }
                 },
-                child: Text(''),
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
-                        Color.fromARGB(72, 255, 255, 255)),
-                    shape: MaterialStateProperty.all<CircleBorder>(CircleBorder(
-                        side: BorderSide(
-                            color: Color.fromARGB(255, 255, 255, 255),
-                            width: 2)))),
+                        const Color.fromARGB(72, 255, 255, 255)),
+                    shape: MaterialStateProperty.all<CircleBorder>(
+                        const CircleBorder(
+                            side: BorderSide(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                width: 2)))),
+                child: const Text(''),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 2,
             )
           ],

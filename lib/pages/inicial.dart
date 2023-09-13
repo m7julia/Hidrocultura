@@ -1,14 +1,9 @@
-import 'dart:io';
-import 'dart:ui';
 
-import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hidrocultura/main.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:get/get.dart';
-import 'package:tflite_v2/tflite_v2.dart';
 
 class Inicial extends StatefulWidget {
+  const Inicial({super.key});
+
   @override
   State<Inicial> createState() => _InicialState();
 }
@@ -17,7 +12,7 @@ class _InicialState extends State<Inicial> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 210, 231, 194), //fundo
+      backgroundColor: const Color.fromARGB(255, 210, 231, 194), //fundo
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Center(
@@ -34,24 +29,21 @@ class _InicialState extends State<Inicial> {
                         flex: 4,
                         child: Column(
                           children: <Widget>[
-                            Text(
+                            const Text(
                               'Monitoramento:',
                               textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 25),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Container(
                               child: ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  //primary: Color.fromARGB(126, 249, 221, 96),
-                                  onPrimary: Color.fromARGB(255, 19, 73, 25),
-                                  primary: Color.fromARGB(255, 210, 231, 194),
+                                  foregroundColor: const Color.fromARGB(255, 19, 73, 25), backgroundColor: const Color.fromARGB(255, 210, 231, 194), elevation: 0,
                                 ),
-                                child: Row(
+                                child: const Row(
                                   children: [
                                     Image(
                                       image: AssetImage(
@@ -73,12 +65,9 @@ class _InicialState extends State<Inicial> {
                               child: ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  //primary: Color.fromARGB(126, 249, 221, 96),
-                                  onPrimary: Color.fromARGB(255, 19, 73, 25),
-                                  primary: Color.fromARGB(255, 210, 231, 194),
+                                  foregroundColor: const Color.fromARGB(255, 19, 73, 25), backgroundColor: const Color.fromARGB(255, 210, 231, 194), elevation: 0,
                                 ),
-                                child: Row(
+                                child: const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -115,13 +104,12 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'temperatura');
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Colors.black54,
+                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: Column(children: [
+                              child: const Column(children: [
                                 Image(
                                   image: AssetImage(
                                       'assets/imagens/icon_temperatura.png'),
@@ -153,13 +141,12 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'luminosidade');
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Colors.black54,
+                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: Column(children: [
+                              child: const Column(children: [
                                 Image(
                                   image: AssetImage(
                                       'assets/imagens/icon_luminosidade.png'),
@@ -196,13 +183,12 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'ph');
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Colors.black54,
+                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: Column(children: [
+                              child: const Column(children: [
                                 Image(
                                   image:
                                       AssetImage('assets/imagens/icon_ph.png'),
@@ -234,13 +220,12 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'co2');
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Colors.black54,
+                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: Column(children: [
+                              child: const Column(children: [
                                 Image(
                                   image:
                                       AssetImage('assets/imagens/icon_co2.png'),
@@ -281,13 +266,12 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'umidade');
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Colors.black54,
+                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: Column(children: [
+                              child: const Column(children: [
                                 Image(
                                   image: AssetImage(
                                       'assets/imagens/icon_umidade.png'),
@@ -320,13 +304,12 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'camera');
                               },
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 247, 255, 240),
-                                onPrimary: Colors.black54,
+                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: Column(children: [
+                              child: const Column(children: [
                                 Image(
                                   image: AssetImage(
                                       'assets/imagens/icon_camera.png'),

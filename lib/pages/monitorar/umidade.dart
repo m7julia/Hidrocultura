@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Umidade extends StatefulWidget {
+  const Umidade({super.key});
+
   @override
   _UmidadeState createState() => _UmidadeState();
 }
@@ -19,13 +21,13 @@ class _UmidadeState extends State<Umidade> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 210, 231, 194), //fundo
+        backgroundColor: const Color.fromARGB(255, 210, 231, 194), //fundo
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(30.0),
           child: Center(
             child: Column(
               children: <Widget>[
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Card(
                   //Botoes -->>
                   elevation: 0,
@@ -40,11 +42,10 @@ class _UmidadeState extends State<Umidade> {
                               Navigator.pushNamed(context, 'co2');
                             },
                             style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 180, 220, 156),
-                                onPrimary: Colors.black,
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.all(10)),
-                            child: Icon(
+                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(10)),
+                            child: const Icon(
                               Icons.arrow_back_ios_new_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
                               size: 15.0,
@@ -60,11 +61,10 @@ class _UmidadeState extends State<Umidade> {
                               Navigator.pushNamed(context, 'temperatura');
                             },
                             style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 180, 220, 156),
-                                onPrimary: Colors.black,
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.all(10)),
-                            child: Icon(
+                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(10)),
+                            child: const Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
                               size: 15.0,
@@ -73,34 +73,34 @@ class _UmidadeState extends State<Umidade> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Image.asset(
                   'assets/imagens/icon_umidade.png',
                   width: 150,
                   height: 150,
                   fit: BoxFit.cover,
                 ),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'Umidade: 60%',
                   style: TextStyle(fontSize: 25),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 // Está saudável!!!!!!
-                Container(
+                SizedBox(
                   height: 50,
                   width: 200,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Saudável!",
                         style: TextStyle(
                           fontSize: 25,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       Image.asset(
@@ -111,13 +111,13 @@ class _UmidadeState extends State<Umidade> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'Estes foram os níveis de luz de umidade do ambiente da planta nos últimos tempos:',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 16),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 SfCartesianChart(
                     //Esse é o grafico hein
@@ -128,11 +128,11 @@ class _UmidadeState extends State<Umidade> {
                           xValueMapper: (UmidadeData temp, _) => temp.dias,
                           yValueMapper: (UmidadeData temp, _) => temp.temp)
                     ]),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
 
                 // Esse container é onde mostra o estágio da planta e tem o botão do lado
                 Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 180, 220, 156),
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   height: 90,
@@ -141,10 +141,10 @@ class _UmidadeState extends State<Umidade> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 25,
                       ),
-                      Text(
+                      const Text(
                         "Sua planta está no: \n"
                         "Estágio inicial de crescimento",
                         textAlign: TextAlign.center,
@@ -152,7 +152,7 @@ class _UmidadeState extends State<Umidade> {
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       Expanded(
@@ -166,7 +166,7 @@ class _UmidadeState extends State<Umidade> {
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                               ),
-                              child: Column(children: [
+                              child: const Column(children: [
                                 SizedBox(
                                   height: 12,
                                 ),
@@ -193,8 +193,8 @@ class _UmidadeState extends State<Umidade> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'A medida que as mudas começam a crescer, a umidade relativa do ar pode ser ligeiramente reduzida para incentivar o desenvlvimento de raízes saudáveis e minimizar o risco de doenças fúngicas. Umaumidade relativa do ar de cerca de 60% a 70% é adequada para essa fase.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),

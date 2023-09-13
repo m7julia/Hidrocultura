@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hidrocultura/main.dart';
 
 class Germinando extends StatelessWidget {
+  const Germinando({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 210, 231, 194), //fundo
+        backgroundColor: const Color.fromARGB(255, 210, 231, 194), //fundo
         body: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                  Card(
+                  const Card(
                     elevation: 0,
                     color: Colors.transparent,
                     surfaceTintColor: Colors.white,
@@ -35,7 +36,7 @@ class Germinando extends StatelessWidget {
                   ),
                   Image.asset('assets/imagens/germinando.png',
                       width: 250, height: 150),
-                  Text(
+                  const Text(
                     'A alface leva em média 6 dias para germinar.',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 14),
@@ -48,13 +49,15 @@ class Germinando extends StatelessWidget {
                             Navigator.pushNamed(context, 'jaGerminouPP');
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: Color.fromARGB(255, 180, 220, 156),
-                            onPrimary: Color.fromARGB(255, 30, 30, 30),
+                            foregroundColor:
+                                const Color.fromARGB(255, 30, 30, 30),
+                            backgroundColor:
+                                const Color.fromARGB(255, 180, 220, 156),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
                           ),
-                          child: Row(children: [
+                          child: const Row(children: [
                             Expanded(
                               flex: 1,
                               child: Text(

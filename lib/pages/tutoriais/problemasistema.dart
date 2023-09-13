@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hidrocultura/main.dart';
 
 class ProblemaSistema extends StatelessWidget {
+  const ProblemaSistema({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
 
     );
   }

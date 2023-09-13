@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/pages/camera.dart';
 import 'package:flutter_hidrocultura/pages/tutoriais/germinando.dart';
 import 'package:flutter_hidrocultura/pages/inicial.dart';
-import 'package:flutter_hidrocultura/pages/tutoriais/jaGerminouPP.dart';
-import 'package:flutter_hidrocultura/pages/tutoriais/primPassos.dart';
+import 'package:flutter_hidrocultura/pages/tutoriais/ja_germinou_primeira_part.dart';
+import 'package:flutter_hidrocultura/pages/tutoriais/prim_passos.dart';
 import 'package:flutter_hidrocultura/pages/tutoriais/quest1.dart';
 import 'package:flutter_hidrocultura/pages/tutoriais/quest2.dart';
-import 'package:flutter_hidrocultura/pages/tutoriais/jaGerminei.dart';
+import 'package:flutter_hidrocultura/pages/tutoriais/ja_germinei.dart';
 import 'package:flutter_hidrocultura/pages/tutoriais/problemasistema.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/temperatura.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/luminosidade.dart';
@@ -14,38 +14,39 @@ import 'package:flutter_hidrocultura/pages/monitorar/umidade.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/ph.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/co2.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "HidroCultura",
       debugShowCheckedModeBanner: false,
-      home: Inicial(),
+      home: const Questionario1(),
       routes: {
         //Tutoriais
-        'quest1': (context) => Questionario1(),
-        'quest2': (context) => Questionario2(),
-        'primPassos': (context) => PrimeirosPassos(),
-        'jaGerminei': (context) => JaGerminei(),
-        'germinando': (context) => Germinando(),
-        'jaGerminouPP': (context) => JaGerminouPP(),
-        'problemasistema': (context) => ProblemaSistema(),
+        'quest1': (context) => const Questionario1(),
+        'quest2': (context) => const Questionario2(),
+        'primPassos': (context) => const PrimeirosPassos(),
+        'jaGerminei': (context) => const JaGerminei(),
+        'germinando': (context) => const Germinando(),
+        'jaGerminouPP': (context) => const JaGerminouPP(),
+        'problemasistema': (context) => const ProblemaSistema(),
 
-        'inicial': (context) => Inicial(),
+        'inicial': (context) => const Inicial(),
 
         //monitorar
-        'temperatura': (context) => Temperatura(),
-        'luminosidade': (context) => Luminosidade(),
-        'umidade': (context) => Umidade(),
-        'ph': (context) => Ph(),
-        'co2': (context) => Co2(),
-        'camera': (context) => Camera()
+        'temperatura': (context) => const Temperatura(),
+        'luminosidade': (context) => const Luminosidade(),
+        'umidade': (context) => const Umidade(),
+        'ph': (context) => const Ph(),
+        'co2': (context) => const Co2(),
+        'camera': (context) => const Camera()
       },
     );
   }

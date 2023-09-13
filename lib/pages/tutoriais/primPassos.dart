@@ -39,7 +39,8 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                       Expanded(
                         flex: 3,
                         child: Image(
-                            image: AssetImage('assets/primeirospassos.png')),
+                            image: AssetImage(
+                                'assets/imagens/primeirospassos.png')),
                       ),
                       Expanded(
                         flex: 4,
@@ -137,8 +138,8 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                             SizedBox(height: 30), //espaço entre paragrafos
 
                             Image(
-                                image:
-                                    AssetImage('assets/espumafenolica.jpeg')),
+                                image: AssetImage(
+                                    'assets/imagens/espumafenolica.jpeg')),
                             SizedBox(height: 30), //espaço entre paragrafos
                             Text(
                               '1. Lave a espuma em água corrente, esse passo serve para retirar resíduos de fabricação que ainda estão presentes na espuma;',
@@ -209,8 +210,8 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                             SizedBox(height: 30), //espaço entre paragrafos
 
                             Image(
-                                image:
-                                    AssetImage('assets/jardineiroTriste.png')),
+                                image: AssetImage(
+                                    'assets/imagens/jardineiroTriste.png')),
                             SizedBox(
                               height: 20,
                             ),
@@ -252,8 +253,8 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                             SizedBox(height: 30), //espaço entre paragrafos
 
                             Image(
-                                image:
-                                    AssetImage('assets/jardineiroTriste.png')),
+                                image: AssetImage(
+                                    'assets/imagens/jardineiroTriste.png')),
                             SizedBox(
                               height: 20,
                             ),

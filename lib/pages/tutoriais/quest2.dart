@@ -19,7 +19,8 @@ class Questionario2 extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       flex: 1,
-                      child: Image(image: AssetImage('assets/gota1.png')),
+                      child:
+                          Image(image: AssetImage('assets/imagens/gota1.png')),
                     ),
                     Expanded(
                       flex: 4,
@@ -55,7 +56,8 @@ class Questionario2 extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Image(
-                          image: AssetImage('assets/primeirospassos.png'),
+                          image:
+                              AssetImage('assets/imagens/primeirospassos.png'),
                           height: 50,
                           width: 50,
                         ),
@@ -92,7 +94,7 @@ class Questionario2 extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Image(
-                          image: AssetImage('assets/germinei.png'),
+                          image: AssetImage('assets/imagens/germinei.png'),
                           height: 50,
                           width: 50,
                         ),
@@ -129,7 +131,7 @@ class Questionario2 extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Image(
-                          image: AssetImage('assets/japlantei.png'),
+                          image: AssetImage('assets/imagens/japlantei.png'),
                           height: 50,
                           width: 50,
                         ),

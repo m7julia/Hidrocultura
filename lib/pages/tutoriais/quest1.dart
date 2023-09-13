@@ -20,7 +20,8 @@ class Questionario1 extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       flex: 1,
-                      child: Image(image: AssetImage('assets/gota1.png')),
+                      child:
+                          Image(image: AssetImage('assets/imagens/gota1.png')),
                     ),
                     Expanded(
                       flex: 4,
@@ -56,7 +57,7 @@ class Questionario1 extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Image(
-                          image: AssetImage('assets/alface.png'),
+                          image: AssetImage('assets/imagens/alface.png'),
                           height: 50,
                           width: 50,
                         ),
@@ -93,7 +94,7 @@ class Questionario1 extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Image(
-                          image: AssetImage('assets/tomate.png'),
+                          image: AssetImage('assets/imagens/tomate.png'),
                           height: 50,
                           width: 50,
                         ),
@@ -130,7 +131,7 @@ class Questionario1 extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Image(
-                          image: AssetImage('assets/rucula.png'),
+                          image: AssetImage('assets/imagens/rucula.png'),
                           height: 50,
                           width: 50,
                         ),
@@ -167,7 +168,7 @@ class Questionario1 extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Image(
-                          image: AssetImage('assets/morango.png'),
+                          image: AssetImage('assets/imagens/morango.png'),
                           height: 50,
                           width: 50,
                         ),

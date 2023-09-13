@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/pages/camera.dart';
 import 'package:flutter_hidrocultura/pages/tutoriais/germinando.dart';

@@ -33,7 +33,8 @@ class Germinando extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Image.asset('assets/germinando.png', width: 250, height: 150),
+                  Image.asset('assets/imagens/germinando.png',
+                      width: 250, height: 150),
                   Text(
                     'A alface leva em média 6 dias para germinar.',
                     textAlign: TextAlign.center,

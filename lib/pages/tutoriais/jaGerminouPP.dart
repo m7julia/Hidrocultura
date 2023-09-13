@@ -14,7 +14,7 @@ class JaGerminouPP extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                   Card(
+                  Card(
                     elevation: 0,
                     color: Colors.transparent,
                     surfaceTintColor: Colors.white,
@@ -58,7 +58,8 @@ class JaGerminouPP extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Image(
-                                        image: AssetImage('assets/atencao.png'),
+                                        image: AssetImage(
+                                            'assets/imagens/atencao.png'),
                                         height: 25,
                                         width: 25,
                                       ),
@@ -97,7 +98,8 @@ class JaGerminouPP extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Image(
-                                        image: AssetImage('assets/atencao.png'),
+                                        image: AssetImage(
+                                            'assets/imagens/atencao.png'),
                                         height: 25,
                                         width: 25,
                                       ),
@@ -116,13 +118,17 @@ class JaGerminouPP extends StatelessWidget {
                               ),
                               TextButton(
                                 onPressed: () {
-                                    Navigator.pushNamed(context, 'problemasistema');
-                                  },
-                                child: const Text('Problemas com o Sistema', style: TextStyle(fontSize: 14),),
-                                style: ElevatedButton.styleFrom(
-                                    onPrimary: Colors.red,
-                                  ),
+                                  Navigator.pushNamed(
+                                      context, 'problemasistema');
+                                },
+                                child: const Text(
+                                  'Problemas com o Sistema',
+                                  style: TextStyle(fontSize: 14),
                                 ),
+                                style: ElevatedButton.styleFrom(
+                                  onPrimary: Colors.red,
+                                ),
+                              ),
                               Text(
                                 'Espuma Fenólica:',
                                 textAlign: TextAlign.justify,
@@ -131,7 +137,7 @@ class JaGerminouPP extends StatelessWidget {
                               SizedBox(
                                 height: 20,
                               ),
-                              Image.asset('assets/jaGerminei.png',
+                              Image.asset('assets/imagens/jaGerminei.png',
                                   width: 350, height: 250),
                               SizedBox(
                                 height: 20,
@@ -190,9 +196,9 @@ class JaGerminouPP extends StatelessWidget {
                                         ),
                                       ] //Row
                                           ))),
-                                          SizedBox(height: 20,),
-                              
-                             
+                              SizedBox(
+                                height: 20,
+                              ),
                             ],
                           ),
                         ),

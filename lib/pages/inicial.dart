@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/main.dart';
-import 'package:flutter_hidrocultura/pages/monitorar/preview_page.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:get/get.dart';
 import 'package:tflite_v2/tflite_v2.dart';
@@ -55,7 +54,8 @@ class _InicialState extends State<Inicial> {
                                 child: Row(
                                   children: [
                                     Image(
-                                      image: AssetImage('assets/alface.png'),
+                                      image: AssetImage(
+                                          'assets/imagens/alface.png'),
                                       height: 40,
                                       width: 40,
                                     ),
@@ -123,8 +123,8 @@ class _InicialState extends State<Inicial> {
                               ),
                               child: Column(children: [
                                 Image(
-                                  image:
-                                      AssetImage('assets/icon_temperatura.png'),
+                                  image: AssetImage(
+                                      'assets/imagens/icon_temperatura.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -162,7 +162,7 @@ class _InicialState extends State<Inicial> {
                               child: Column(children: [
                                 Image(
                                   image: AssetImage(
-                                      'assets/icon_luminosidade.png'),
+                                      'assets/imagens/icon_luminosidade.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -204,7 +204,8 @@ class _InicialState extends State<Inicial> {
                               ),
                               child: Column(children: [
                                 Image(
-                                  image: AssetImage('assets/icon_ph.png'),
+                                  image:
+                                      AssetImage('assets/imagens/icon_ph.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -241,7 +242,8 @@ class _InicialState extends State<Inicial> {
                               ),
                               child: Column(children: [
                                 Image(
-                                  image: AssetImage('assets/icon_co2.png'),
+                                  image:
+                                      AssetImage('assets/imagens/icon_co2.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -287,7 +289,8 @@ class _InicialState extends State<Inicial> {
                               ),
                               child: Column(children: [
                                 Image(
-                                  image: AssetImage('assets/icon_umidade.png'),
+                                  image: AssetImage(
+                                      'assets/imagens/icon_umidade.png'),
                                   height: 70,
                                   width: 50,
                                 ),
@@ -325,7 +328,8 @@ class _InicialState extends State<Inicial> {
                               ),
                               child: Column(children: [
                                 Image(
-                                  image: AssetImage('assets/icon_camera.png'),
+                                  image: AssetImage(
+                                      'assets/imagens/icon_camera.png'),
                                   height: 70,
                                   width: 50,
                                 ),

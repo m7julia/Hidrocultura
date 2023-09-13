@@ -1,11 +1,5 @@
-import 'dart:io';
-
-import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hidrocultura/main.dart';
-import 'package:flutter_hidrocultura/pages/monitorar/preview_page.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Co2 extends StatefulWidget {
@@ -15,17 +9,6 @@ class Co2 extends StatefulWidget {
 
 class _Co2State extends State<Co2> {
   List<Co2Data> _chartData = [];
-
-  File? arquivo;
-
-  showPreview(file) async {
-    file = await Get.to(() => PreviewPage(file: file));
-
-    if (file != null) {
-      setState(() => arquivo = file);
-      Get.back();
-    }
-  }
 
   @override
   void initState() {
@@ -92,7 +75,7 @@ class _Co2State extends State<Co2> {
                 ),
                 SizedBox(height: 10),
                 Image.asset(
-                  'assets/icon_co2.png',
+                  'assets/imagens/icon_co2.png',
                   width: 150,
                   height: 150,
                   fit: BoxFit.cover,
@@ -121,7 +104,7 @@ class _Co2State extends State<Co2> {
                         width: 15,
                       ),
                       Image.asset(
-                        'assets/checkgood.png',
+                        'assets/imagens/checkgood.png',
                         width: 40,
                         height: 40,
                       ),
@@ -174,10 +157,7 @@ class _Co2State extends State<Co2> {
                       ),
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () => Get.to(
-                                    () => CameraCamera(
-                                        onFile: (file) => showPreview(file)),
-                                  ),
+                              onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.transparent,
                                 foregroundColor: Colors.black,
@@ -191,7 +171,8 @@ class _Co2State extends State<Co2> {
                                   height: 12,
                                 ),
                                 Image(
-                                  image: AssetImage('assets/icon_camera.png'),
+                                  image: AssetImage(
+                                      'assets/imagens/icon_camera.png'),
                                   height: 40,
                                   width: 40,
                                   fit: BoxFit.cover,

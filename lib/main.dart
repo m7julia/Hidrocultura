@@ -38,14 +38,20 @@ class MyApp extends StatelessWidget {
         'jaGerminouPP': (context) => const JaGerminouPP(),
         'problemasistema': (context) => const ProblemaSistema(),
 
-        'inicial': (context) => const Inicial(),
+        'inicial': (context) => Inicial(
+              estadoPlanta: "",
+            ),
 
         //monitorar
         'temperatura': (context) => const Temperatura(),
-        'luminosidade': (context) => const Luminosidade(),
+        'luminosidade': (context) => Luminosidade(
+              estadoPlanta: "",
+            ),
         'umidade': (context) => const Umidade(),
         'ph': (context) => const Ph(),
-        'co2': (context) => const Co2(),
+        'co2': (context) => Co2(
+              estadoPlanta: "",
+            ),
         'camera': (context) => const Camera()
       },
     );

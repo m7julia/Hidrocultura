@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Co2 extends StatefulWidget {
-  const Co2({super.key});
+  String estadoPlanta;
+  Co2({required this.estadoPlanta});
 
   @override
   _Co2State createState() => _Co2State();
@@ -42,7 +43,9 @@ class _Co2State extends State<Co2> {
                               Navigator.pushNamed(context, 'ph');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
@@ -61,7 +64,9 @@ class _Co2State extends State<Co2> {
                               Navigator.pushNamed(context, 'umidade');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
@@ -144,12 +149,21 @@ class _Co2State extends State<Co2> {
                       const SizedBox(
                         width: 25,
                       ),
-                      const Text(
-                        "Sua planta está no: \n"
-                        "Estágio inicial de crescimento",
+                      Text(
+                        "Sua planta está no: \n",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        widget.estadoPlanta,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 12,
                         ),
                       ),
                       const SizedBox(
@@ -157,7 +171,9 @@ class _Co2State extends State<Co2> {
                       ),
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, 'camera');
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.transparent,
                                 foregroundColor: Colors.black,

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Luminosidade extends StatefulWidget {
-  const Luminosidade({super.key});
+  String estadoPlanta;
+  Luminosidade({required this.estadoPlanta});
 
   @override
   _LuminosidadeState createState() => _LuminosidadeState();
@@ -41,7 +42,9 @@ class _LuminosidadeState extends State<Luminosidade> {
                               Navigator.pushNamed(context, 'temperatura');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
@@ -60,7 +63,9 @@ class _LuminosidadeState extends State<Luminosidade> {
                               Navigator.pushNamed(context, 'ph');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(

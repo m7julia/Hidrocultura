@@ -1,14 +1,28 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/co2.dart';
 
 class Inicial extends StatefulWidget {
-  const Inicial({super.key});
+  String estadoPlanta;
+  Inicial({required this.estadoPlanta});
 
   @override
   State<Inicial> createState() => _InicialState();
 }
 
 class _InicialState extends State<Inicial> {
+  void mandarInfosCo2() {
+    late String estadoPlanta;
+
+    setState(() {
+      if (widget.estadoPlanta != null) estadoPlanta = widget.estadoPlanta;
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Co2(estadoPlanta: estadoPlanta)));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +55,11 @@ class _InicialState extends State<Inicial> {
                               child: ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
-                                  foregroundColor: const Color.fromARGB(255, 19, 73, 25), backgroundColor: const Color.fromARGB(255, 210, 231, 194), elevation: 0,
+                                  foregroundColor:
+                                      const Color.fromARGB(255, 19, 73, 25),
+                                  backgroundColor:
+                                      const Color.fromARGB(255, 210, 231, 194),
+                                  elevation: 0,
                                 ),
                                 child: const Row(
                                   children: [
@@ -65,16 +83,20 @@ class _InicialState extends State<Inicial> {
                               child: ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
-                                  foregroundColor: const Color.fromARGB(255, 19, 73, 25), backgroundColor: const Color.fromARGB(255, 210, 231, 194), elevation: 0,
+                                  foregroundColor:
+                                      const Color.fromARGB(255, 19, 73, 25),
+                                  backgroundColor:
+                                      const Color.fromARGB(255, 210, 231, 194),
+                                  elevation: 0,
                                 ),
-                                child: const Row(
+                                child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      "Estágio inicial de Crescimento",
+                                      widget.estadoPlanta,
                                       style: TextStyle(
                                         fontSize: 16,
                                       ),
@@ -104,7 +126,9 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'temperatura');
                               },
                               style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
+                                foregroundColor: Colors.black54,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -141,7 +165,9 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'luminosidade');
                               },
                               style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
+                                foregroundColor: Colors.black54,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -183,7 +209,9 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'ph');
                               },
                               style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
+                                foregroundColor: Colors.black54,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -216,11 +244,11 @@ class _InicialState extends State<Inicial> {
                       ),
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'co2');
-                              },
+                              onPressed: () => mandarInfosCo2(),
                               style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
+                                foregroundColor: Colors.black54,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -266,7 +294,9 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'umidade');
                               },
                               style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
+                                foregroundColor: Colors.black54,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -304,7 +334,9 @@ class _InicialState extends State<Inicial> {
                                 Navigator.pushNamed(context, 'camera');
                               },
                               style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black54, backgroundColor: const Color.fromARGB(255, 247, 255, 240),
+                                foregroundColor: Colors.black54,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 247, 255, 240),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),

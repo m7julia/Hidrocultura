@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:camera_camera/camera_camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hidrocultura/pages/inicial.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 
 class Camera extends StatefulWidget {
@@ -12,13 +13,28 @@ class Camera extends StatefulWidget {
 }
 
 class _CameraState extends State<Camera> {
+  void salvar() {
+    late String estadoPlanta;
+
+    setState(() {
+      if (_outputs != null) estadoPlanta = _outputs![0]["label"];
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Inicial(estadoPlanta: estadoPlanta)));
+    });
+  }
+
   Widget infoObjeto(BuildContext context) {
     return AlertDialog(
-      content: Scaffold(
-        body: Card(
+      content: Container(
+        height: 550,
+        width: 450,
+        child: Card(
           elevation: 0,
           color: Colors.transparent,
-          surfaceTintColor: Colors.white,
+          surfaceTintColor: const Color.fromARGB(255, 210, 231, 194), //fundo
           child: Column(
             children: [
               Image.file(
@@ -44,11 +60,23 @@ class _CameraState extends State<Camera> {
       actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.pop(context, 'Cancel'),
-          child: const Text('Cancel'),
+          child: const Text(
+            'Cancel',
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20.0,
+            ),
+          ),
         ),
         TextButton(
-          onPressed: () => Navigator.pop(context, 'OK'),
-          child: const Text('OK'),
+          onPressed: () => salvar(),
+          child: const Text(
+            'OK',
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20.0,
+            ),
+          ),
         ),
       ],
     );

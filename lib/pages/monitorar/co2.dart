@@ -146,66 +146,30 @@ class _Co2State extends State<Co2> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        width: 25,
-                      ),
-                      Text(
-                        "Sua planta está no: \n",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        widget.estadoPlanta,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                          child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'camera');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                foregroundColor: Colors.black,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                              child: const Column(children: [
-                                SizedBox(
-                                  height: 12,
-                                ),
-                                Image(
-                                  image: AssetImage(
-                                      'assets/imagens/icon_camera.png'),
-                                  height: 40,
-                                  width: 40,
-                                  fit: BoxFit.cover,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Verificar",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                //Tex
-                              ] //Row
-                                  ))),
+                      Column(
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Sua planta está em:",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.estadoPlanta,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),

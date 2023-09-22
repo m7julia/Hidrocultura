@@ -145,64 +145,57 @@ class _LuminosidadeState extends State<Luminosidade> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        width: 25,
-                      ),
-                      const Text(
-                        "Sua planta está no: \n"
-                        "Estágio inicial de crescimento",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                          child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                foregroundColor: Colors.black,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                              child: const Column(children: [
-                                SizedBox(
-                                  height: 12,
-                                ),
-                                Image(
-                                  image: AssetImage(
-                                      'assets/imagens/icon_camera.png'),
-                                  height: 40,
-                                  width: 40,
-                                  fit: BoxFit.cover,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Verificar",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                //Tex
-                              ] //Row
-                                  ))),
+                      Column(
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Sua planta está em:",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.estadoPlanta,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
+
                 const SizedBox(height: 30),
+                //germinando
                 const Text(
-                  'À medida que as mudas de alface começam a crescer, é necessário aumentar a intensidade da luz. Recomenda-se uma luminosidade de cerca de 2.000 a 3.000 lux.',
+                  'Durante a fase de germinação e quando as mudas estão em estágio de plântulas, uma intensidade luminosa mais baixa é suficiente. Cerca de 200-300 micro-moles de luz por metro quadrado por segundo (μmol/m²/s), o que equivale a aproximadamente 12.000-18.000 lux, pode ser adequado.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),
                 ),
+
+                /*
+                //crescimento vegetativo
+                const Text(
+                  'Durante o estágio de crescimento vegetativo, as alfaces precisam de mais luz para desenvolver folhas saudáveis. Recomenda-se uma intensidade luminosa de aproximadamente 400-600 μmol/m²/s, o que equivale a cerca de 24.000-36.000 lux. Luzes brancas ou azuis (espectro de luz mais fria) são boas opções nesta fase.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 18),
+                ),*/
+
+                /*
+                //colheita
+                const Text(
+                  'Durante a fase de colheita das alfaces crespa em um sistema hidropônico, a luminosidade ideal ainda é importante para manter a qualidade das folhas. A intensidade luminosa adequada pode ajudar a manter a cor, textura e sabor das folhas. Para alfaces crespa em estado de colheita, recomenda-se uma intensidade luminosa na faixa de 200 a 400 micro-moles de luz por metro quadrado por segundo (μmol/m²/s), o que equivale a aproximadamente 12.000 a 24.000 lux. Geralmente, fornecer de 12 a 16 horas de luz por dia é apropriado para a fase de crescimento e colheita de alfaces crespa.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 18),
+                ),*/
               ],
             ),
           ),
@@ -226,3 +219,25 @@ class LuminosidadeData {
   final double lum;
   final String dias;
 }
+
+
+/*
+Germinação
+12.000 a 18.000 == saudável
+11.000 a 12.000 && 18.000 a 19.000 == sensível
+<11.000 && >19.000 == enferma
+*/
+
+/*
+crescimento vegetativo
+24.000 a 36.000 == saudável
+23.000 a 24.000 && 36.000 a 37.000 == sensível
+<23.000 && >37.000 == enferma
+*/
+
+/*
+colheita 
+12.000 a 18.000 == saudável
+11.000 a 12.000 && 18.000 a 19.000 == sensível
+<11.000 && >19.000 == enferma
+*/

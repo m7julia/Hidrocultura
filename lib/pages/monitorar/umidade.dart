@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Umidade extends StatefulWidget {
-  const Umidade({super.key});
+  String estadoPlanta;
+  Umidade({required this.estadoPlanta});
 
   @override
   _UmidadeState createState() => _UmidadeState();
@@ -42,7 +43,9 @@ class _UmidadeState extends State<Umidade> {
                               Navigator.pushNamed(context, 'co2');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
@@ -61,7 +64,9 @@ class _UmidadeState extends State<Umidade> {
                               Navigator.pushNamed(context, 'temperatura');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
@@ -141,64 +146,56 @@ class _UmidadeState extends State<Umidade> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        width: 25,
-                      ),
-                      const Text(
-                        "Sua planta está no: \n"
-                        "Estágio inicial de crescimento",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                          child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                foregroundColor: Colors.black,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                              child: const Column(children: [
-                                SizedBox(
-                                  height: 12,
-                                ),
-                                Image(
-                                  image: AssetImage(
-                                      'assets/imagens/icon_camera.png'),
-                                  height: 40,
-                                  width: 40,
-                                  fit: BoxFit.cover,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Verificar",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                //Tex
-                              ] //Row
-                                  ))),
+                      Column(
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Sua planta está em:",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.estadoPlanta,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
                 const SizedBox(height: 30),
+                //germinando
                 const Text(
-                  'A medida que as mudas começam a crescer, a umidade relativa do ar pode ser ligeiramente reduzida para incentivar o desenvlvimento de raízes saudáveis e minimizar o risco de doenças fúngicas. Umaumidade relativa do ar de cerca de 60% a 70% é adequada para essa fase.',
+                  'O nível ideal de umidade para alfaces crespa em estado de germinação em um sistema hidropônico geralmente fica na faixa de 80% a 90%. Manter um ambiente com alta umidade relativa é importante para garantir que as sementes de alface crespa germinem com sucesso e que as plântulas cresçam de maneira saudável.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),
                 ),
+
+                /*
+                //crescimento vegetativo
+                const Text(
+                  'O nível ideal de umidade para alfaces crespa em estado de crescimento em um sistema hidropônico geralmente varia entre 50% e 70% de umidade relativa. Manter a umidade dentro dessa faixa pode ajudar a criar um ambiente propício para o crescimento saudável das alfaces crespa, minimizando problemas como doenças fúngicas e excesso de umidade.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 18),
+                ),*/
+
+                //colheita
+                /*
+                const Text(
+                  'O nível ideal de umidade para alfaces crespa em estado de colheita geralmente fica na faixa de 40% a 60% de umidade relativa. Isso porque durante a fase de colheita das alfaces crespa em um sistema hidropônico, é importante manter a umidade relativamente baixa para evitar problemas como a deterioração das folhas e o crescimento excessivo de fungos.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 18),
+                ),*/
               ],
             ),
           ),

@@ -43,12 +43,18 @@ class MyApp extends StatelessWidget {
             ),
 
         //monitorar
-        'temperatura': (context) => const Temperatura(),
+        'temperatura': (context) => Temperatura(
+              estadoPlanta: "",
+            ),
         'luminosidade': (context) => Luminosidade(
               estadoPlanta: "",
             ),
-        'umidade': (context) => const Umidade(),
-        'ph': (context) => const Ph(),
+        'umidade': (context) => Umidade(
+              estadoPlanta: "",
+            ),
+        'ph': (context) => Ph(
+              estadoPlanta: "",
+            ),
         'co2': (context) => Co2(
               estadoPlanta: "",
             ),

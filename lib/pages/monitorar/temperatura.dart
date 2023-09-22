@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Temperatura extends StatefulWidget {
-  const Temperatura({super.key});
+  String estadoPlanta;
+  Temperatura({required this.estadoPlanta});
 
   @override
   _TemperaturaState createState() => _TemperaturaState();
@@ -41,7 +42,9 @@ class _TemperaturaState extends State<Temperatura> {
                               Navigator.pushNamed(context, 'inicial');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
@@ -60,7 +63,9 @@ class _TemperaturaState extends State<Temperatura> {
                               Navigator.pushNamed(context, 'luminosidade');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
@@ -140,64 +145,54 @@ class _TemperaturaState extends State<Temperatura> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        width: 25,
-                      ),
-                      const Text(
-                        "Sua planta está no: \n"
-                        "Estágio inicial de crescimento",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                          child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                foregroundColor: Colors.black,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                              child: const Column(children: [
-                                SizedBox(
-                                  height: 12,
-                                ),
-                                Image(
-                                  image: AssetImage(
-                                      'assets/imagens/icon_camera.png'),
-                                  height: 40,
-                                  width: 40,
-                                  fit: BoxFit.cover,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Verificar",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                //Tex
-                              ] //Row
-                                  ))),
+                      Column(
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Sua planta está em:",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.estadoPlanta,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
                 const SizedBox(height: 30),
+                //germinando
                 const Text(
-                  'Após a germinação, quando as mudas começam a crescer, a temperatura ideal é de cerca de 18 a 21 graus Celsius. Nessa fase, é importante fornecer temperaturas mais frescas para incentivar o enraizamento adequado e um crescimento saudável das mudas.',
+                  'O nível de temperatura ideal para alfaces em estado de germinação na hidroponia varia um pouco, mas geralmente está na faixa de 20°C a 24°C graus Celsius. Essa faixa de temperatura é considerada ótima para a germinação das sementes de alface.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),
                 ),
+
+                //gestado vegetativo
+                /*const Text(
+                  'A faixa de temperatura recomendada fica entre 18°C a 22°C. Manter a temperatura dentro dessa faixa é importante para promover o crescimento saudável das alfaces.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 18),
+                ),*/
+
+                //colheita
+                /*const Text(
+                  'Manter as alfaces em temperaturas mais baixas, como entre 10 e 18°C, antes da colheita pode ajudar a retardar o crescimento e o amadurecimento das plantas, o que pode ser útil se você deseja garantir a qualidade das alfaces até o momento da colheita.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 18),
+                ),*/
               ],
             ),
           ),

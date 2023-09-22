@@ -12,11 +12,20 @@ class Co2 extends StatefulWidget {
 
 class _Co2State extends State<Co2> {
   List<Co2Data> _chartData = [];
+  var valorSensor;
 
+  var maxCo2Saudavel;
   @override
   void initState() {
+    valorSensor = 100;
     _chartData = getChartData();
     super.initState();
+
+    if (widget.estadoPlanta == "Desenvolvimento Vegetativo") {
+      maxCo2Saudavel = 800;
+    } else {
+      maxCo2Saudavel = 500;
+    }
   }
 
   @override
@@ -95,26 +104,71 @@ class _Co2State extends State<Co2> {
                 SizedBox(
                   height: 50,
                   width: 200,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Saudável!",
-                        style: TextStyle(
-                          fontSize: 25,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Image.asset(
-                        'assets/imagens/checkgood.png',
-                        width: 40,
-                        height: 40,
-                      ),
-                    ],
-                  ),
+                  child: (valorSensor < 300 && valorSensor >= 200) ||
+                          (valorSensor > maxCo2Saudavel &&
+                              valorSensor <= maxCo2Saudavel + 100)
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Sensivel!",
+                              style: TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Image.asset(
+                              'assets/imagens/sensivel.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ],
+                        )
+                      : (valorSensor >= 300 && valorSensor <= maxCo2Saudavel)
+                          ? Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                //Saudável
+                                const Text(
+                                  "Saudável!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/checkgood.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            )
+                          : Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Enferma!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/enferma.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            ),
                 ),
                 const SizedBox(height: 30),
                 const Text(
@@ -174,11 +228,30 @@ class _Co2State extends State<Co2> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                const Text(
-                  'À medida que as mudas crescem, é recomendado manter os níveis de CO2 entre 1.000 a 1.200 ppm.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),
+                //estado germinando
+                (widget.estadoPlanta == "Germinação")
+                    ? const Text(
+                        'O nível ideal de dióxido de carbono (CO2) para o cultivo de alfaces em estado de germinação pode variar, mas em geral, é aconselhável manter os níveis de CO2 em torno de 300ppm a 500ppm.',
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 18),
+                      )
+                    : (widget.estadoPlanta == "Desenvolvimento Vegetativo")
+                        ?
+
+                        //estado crescimento vegetativo
+                        const Text(
+                            'Durante o crescimento vegetativo das alfaces, os níveis ideais de dióxido de carbono (CO2) podem variar, mas geralmente são mantidos em torno de 300ppm a 800ppm. ',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          )
+                        :
+
+                        //estado de colheita
+                        const Text(
+                            'durante o estágio de colheita, os níveis de CO2 podem ser mantidos em torno de 300ppm a 500ppm, que é a faixa típica de CO2 encontrada no ar ambiente. ',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          )
               ],
             ),
           ),
@@ -202,3 +275,26 @@ class Co2Data {
   final double co2;
   final String dias;
 }
+
+
+//Anotações:
+/*
+Se esta germinando:
+de 300ppm a 500ppm == saudavel 
+de 300 a 200 || 500 a 600 == sensivel
+<200 a >600 == enferma*/
+
+/* 
+se estado vegetativo:
+de 300ppm a 800ppm == saudavel 
+de 300 a 200 && 800 a 900 == sensivel
+<200 a >900 == enferma*/
+
+/* 
+se estado colheita:
+de 300ppm a 500ppm == saudavel 
+de 300 a 200 && 500 a 600 == sensivel.
+
+<200 a >600 == enferma*/
+
+

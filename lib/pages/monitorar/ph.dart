@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Ph extends StatefulWidget {
-  const Ph({super.key});
+  String estadoPlanta;
+  Ph({required this.estadoPlanta});
 
   @override
   _PhState createState() => _PhState();
@@ -41,7 +42,9 @@ class _PhState extends State<Ph> {
                               Navigator.pushNamed(context, 'luminosidade');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
@@ -60,7 +63,9 @@ class _PhState extends State<Ph> {
                               Navigator.pushNamed(context, 'co2');
                             },
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black, backgroundColor: const Color.fromARGB(255, 180, 220, 156),
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
@@ -140,64 +145,54 @@ class _PhState extends State<Ph> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(
-                        width: 25,
-                      ),
-                      const Text(
-                        "Sua planta está no: \n"
-                        "Estágio inicial de crescimento",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Expanded(
-                          child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                foregroundColor: Colors.black,
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                              child: const Column(children: [
-                                SizedBox(
-                                  height: 12,
-                                ),
-                                Image(
-                                  image: AssetImage(
-                                      'assets/imagens/icon_camera.png'),
-                                  height: 40,
-                                  width: 40,
-                                  fit: BoxFit.cover,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  "Verificar",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                //Tex
-                              ] //Row
-                                  ))),
+                      Column(
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Sua planta está em:",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.estadoPlanta,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
                 const SizedBox(height: 30),
+                //germinando
                 const Text(
-                  'Durante o estágio inicial de crescimento das mudas, o pH recomendado é de 5,8 a 6,2. Manter o pH nessa faixa ajuda a garantir a absorção adequada de nutrientes essenciais para o desenvolvimento das raízes e o crescimento das folhas.',
+                  'Durante o estágio inicial de crescimento das mudas, o pH recomendado é de 5,5 a 6,5. Manter o pH nessa faixa ajuda a garantir a absorção adequada de nutrientes essenciais para o desenvolvimento das raízes e o crescimento das folhas.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 18),
                 ),
+
+                //desenvolvimento vegetativo
+                /*const Text(
+                  'Durante o desenvolvimento vegetativo do alface na hidroponia, o nível de pH ideal também está na faixa de 5,5 a 6,5, assim como na fase de germinação. Manter o pH dentro dessa faixa é importante para garantir a absorção adequada de nutrientes pelas plantas, o que é essencial para o crescimento saudável das alfaces.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 18),
+                ),*/
+
+                //colheita
+                /*const Text(
+                  'Durante a fase de colheita das alfaces na hidroponia, o pH da solução nutritiva não é tão crítico quanto nas fases de germinação e crescimento vegetativo. Neste estágio, o pH pode ser mantido na faixa de 5,5 a 6,5, que é a mesma faixa recomendada para o desenvolvimento vegetativo, pois ainda é uma faixa geralmente aceitável para a absorção de nutrientes pelas plantas.',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 18),
+                ),*/
               ],
             ),
           ),
@@ -221,3 +216,24 @@ class PhData {
   final double ph;
   final String dias;
 }
+
+//Anotações:
+/*
+Se esta germinando:
+de 5,5 a 6,5 == saudavel 
+de  a 200 && 500 a 600 == sensivel
+<200 a >600 == enferma*/
+
+/* 
+se estado vegetativo:
+de 300ppm a 800ppm == saudavel 
+de 300 a 200 && 800 a 900 == sensivel
+<200 a >900 == enferma*/
+
+/* 
+se estado colheita:
+de 300ppm a 500ppm == saudavel 
+de 300 a 200 && 500 a 600 == sensivel
+<200 a >600 == enferma*/
+
+

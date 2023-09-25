@@ -11,11 +11,22 @@ class Luminosidade extends StatefulWidget {
 
 class _LuminosidadeState extends State<Luminosidade> {
   List<LuminosidadeData> _chartData = [];
+  var valorSensor = 36230;
 
+  var maxLumSaudavel;
+  var minLumSaudavel;
   @override
   void initState() {
     _chartData = getChartData();
     super.initState();
+
+    if (widget.estadoPlanta == "Desenvolvimento Vegetativo") {
+      maxLumSaudavel = 36000;
+      minLumSaudavel = 24000;
+    } else {
+      maxLumSaudavel = 18000;
+      minLumSaudavel = 12000;
+    }
   }
 
   @override
@@ -85,35 +96,80 @@ class _LuminosidadeState extends State<Luminosidade> {
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Luminosidade: 2.500 lux',
+                Text(
+                  'Luminosidade: $valorSensor lux',
                   style: TextStyle(fontSize: 25),
                 ),
                 const SizedBox(height: 10),
-                // Está saudável!!!!!!
                 SizedBox(
                   height: 50,
                   width: 200,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Saudável!",
-                        style: TextStyle(
-                          fontSize: 25,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Image.asset(
-                        'assets/imagens/checkgood.png',
-                        width: 40,
-                        height: 40,
-                      ),
-                    ],
-                  ),
+                  child: (valorSensor < minLumSaudavel &&
+                              valorSensor >= minLumSaudavel - 1000) ||
+                          (valorSensor > maxLumSaudavel &&
+                              valorSensor <= maxLumSaudavel + 1000)
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Sensivel!",
+                              style: TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Image.asset(
+                              'assets/imagens/sensivel.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ],
+                        )
+                      : (valorSensor >= minLumSaudavel &&
+                              valorSensor <= maxLumSaudavel)
+                          ? Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Saudável!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/checkgood.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            )
+                          : Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Enferma!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/enferma.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            ),
                 ),
                 const SizedBox(height: 30),
                 const Text(
@@ -174,28 +230,30 @@ class _LuminosidadeState extends State<Luminosidade> {
                 ),
 
                 const SizedBox(height: 30),
-                //germinando
-                const Text(
-                  'Durante a fase de germinação e quando as mudas estão em estágio de plântulas, uma intensidade luminosa mais baixa é suficiente. Cerca de 200-300 micro-moles de luz por metro quadrado por segundo (μmol/m²/s), o que equivale a aproximadamente 12.000-18.000 lux, pode ser adequado.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),
+                //estado germinando
+                (widget.estadoPlanta == "Germinação")
+                    ? Text(
+                        'Durante a fase de germinação e quando as mudas estão em estágio de plântulas, uma intensidade luminosa mais baixa é suficiente. Cerca de 200-300 micro-moles de luz por metro quadrado por segundo (μmol/m²/s), o que equivale a aproximadamente 12.000-18.000 lux, pode ser adequado.',
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 18),
+                      )
+                    : (widget.estadoPlanta == "Desenvolvimento Vegetativo")
+                        ?
 
-                /*
-                //crescimento vegetativo
-                const Text(
-                  'Durante o estágio de crescimento vegetativo, as alfaces precisam de mais luz para desenvolver folhas saudáveis. Recomenda-se uma intensidade luminosa de aproximadamente 400-600 μmol/m²/s, o que equivale a cerca de 24.000-36.000 lux. Luzes brancas ou azuis (espectro de luz mais fria) são boas opções nesta fase.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),*/
+                        //estado crescimento vegetativo
+                        const Text(
+                            'Durante o estágio de crescimento vegetativo, as alfaces precisam de mais luz para desenvolver folhas saudáveis. Recomenda-se uma intensidade luminosa de aproximadamente 400-600 μmol/m²/s, o que equivale a cerca de 24.000-36.000 lux. Luzes brancas ou azuis (espectro de luz mais fria) são boas opções nesta fase.',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          )
+                        :
 
-                /*
-                //colheita
-                const Text(
-                  'Durante a fase de colheita das alfaces crespa em um sistema hidropônico, a luminosidade ideal ainda é importante para manter a qualidade das folhas. A intensidade luminosa adequada pode ajudar a manter a cor, textura e sabor das folhas. Para alfaces crespa em estado de colheita, recomenda-se uma intensidade luminosa na faixa de 200 a 400 micro-moles de luz por metro quadrado por segundo (μmol/m²/s), o que equivale a aproximadamente 12.000 a 24.000 lux. Geralmente, fornecer de 12 a 16 horas de luz por dia é apropriado para a fase de crescimento e colheita de alfaces crespa.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),*/
+                        //estado de colheita
+                        const Text(
+                            'Durante a fase de colheita das alfaces crespa em um sistema hidropônico, a luminosidade ideal ainda é importante para manter a qualidade das folhas. A intensidade luminosa adequada pode ajudar a manter a cor, textura e sabor das folhas. Para alfaces crespa em estado de colheita, recomenda-se uma intensidade luminosa na faixa de 200 a 400 micro-moles de luz por metro quadrado por segundo (μmol/m²/s), o que equivale a aproximadamente 12.000 a 24.000 lux. Geralmente, fornecer de 12 a 16 horas de luz por dia é apropriado para a fase de crescimento e colheita de alfaces crespa.',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          ),
               ],
             ),
           ),

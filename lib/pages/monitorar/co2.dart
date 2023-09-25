@@ -12,7 +12,7 @@ class Co2 extends StatefulWidget {
 
 class _Co2State extends State<Co2> {
   List<Co2Data> _chartData = [];
-  var valorSensor;
+  var valorSensor = 0;
 
   var maxCo2Saudavel;
   @override
@@ -95,12 +95,12 @@ class _Co2State extends State<Co2> {
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'CO2: 1220ppm',
+
+                Text(
+                  'CO2: $valorSensor ppm',
                   style: TextStyle(fontSize: 25),
                 ),
-                const SizedBox(height: 10),
-                // Está saudável!!!!!!
+                SizedBox(height: 10),
                 SizedBox(
                   height: 50,
                   width: 200,

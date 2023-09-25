@@ -11,6 +11,7 @@ class Ph extends StatefulWidget {
 
 class _PhState extends State<Ph> {
   List<PhData> _chartData = [];
+  var valorSensor = 6.7;
 
   @override
   void initState() {
@@ -221,19 +222,19 @@ class PhData {
 /*
 Se esta germinando:
 de 5,5 a 6,5 == saudavel 
-de  a 200 && 500 a 600 == sensivel
-<200 a >600 == enferma*/
+de  4,5 a 5,5 || 6,5 a 7,5 == sensivel
+<4,5 a >7,5 == enferma*/
 
 /* 
 se estado vegetativo:
-de 300ppm a 800ppm == saudavel 
-de 300 a 200 && 800 a 900 == sensivel
-<200 a >900 == enferma*/
+de 5,8 a 6,5 == saudavel 
+de  4,8 a 5,8 || 6,5 a 7,5 == sensivel
+<4,8 a >7,5 == enferma*/
 
 /* 
 se estado colheita:
-de 300ppm a 500ppm == saudavel 
-de 300 a 200 && 500 a 600 == sensivel
-<200 a >600 == enferma*/
+de 5,5 a 6,0 == saudavel 
+de  4,5 a 5,5 || 6,0 a 7,0 == sensivel
+<4,5 a >7,0 == enferma*/
 
 

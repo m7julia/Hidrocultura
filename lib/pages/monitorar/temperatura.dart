@@ -216,3 +216,24 @@ class TemperaturaData {
   final double temp;
   final String dias;
 }
+
+/*
+Germinação
+12.000 a 18.000 == saudável
+11.000 a 12.000 && 18.000 a 19.000 == sensível
+<11.000 && >19.000 == enferma
+*/
+
+/*
+crescimento vegetativo
+24.000 a 36.000 == saudável
+23.000 a 24.000 && 36.000 a 37.000 == sensível
+<23.000 && >37.000 == enferma
+*/
+
+/*
+colheita 
+12.000 a 18.000 == saudável
+11.000 a 12.000 && 18.000 a 19.000 == sensível
+<11.000 && >19.000 == enferma
+*/

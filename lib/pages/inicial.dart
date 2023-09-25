@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/co2.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/luminosidade.dart';
 
 class Inicial extends StatefulWidget {
   String estadoPlanta;
@@ -20,6 +21,19 @@ class _InicialState extends State<Inicial> {
           context,
           MaterialPageRoute(
               builder: (context) => Co2(estadoPlanta: estadoPlanta)));
+    });
+  }
+
+  void mandarInfosLum() {
+    late String estadoPlanta;
+
+    setState(() {
+      if (widget.estadoPlanta != null) estadoPlanta = widget.estadoPlanta;
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Luminosidade(estadoPlanta: estadoPlanta)));
     });
   }
 
@@ -161,9 +175,7 @@ class _InicialState extends State<Inicial> {
                       ),
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'luminosidade');
-                              },
+                              onPressed: () => mandarInfosLum(),
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.black54,
                                 backgroundColor:

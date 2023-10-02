@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/co2.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/luminosidade.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class Inicial extends StatefulWidget {
   String estadoPlanta;

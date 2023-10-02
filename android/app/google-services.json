@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "339336500127",
+    "firebase_url": "https://hidrocultura-d68b0-default-rtdb.firebaseio.com",
+    "project_id": "hidrocultura-d68b0",
+    "storage_bucket": "hidrocultura-d68b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339336500127:android:31b748dcbf59701a6e23aa",
+        "android_client_info": {
+          "package_name": "com.example.flutter_hidrocultura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339336500127-69ccer5acihop007l2jhnl4rfrsas1ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnE15wFJ_EXNQz1_gredVe8nX8wit_rLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339336500127-69ccer5acihop007l2jhnl4rfrsas1ge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

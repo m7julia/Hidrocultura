@@ -12,11 +12,27 @@ class Umidade extends StatefulWidget {
 
 class _UmidadeState extends State<Umidade> {
   List<UmidadeData> _chartData = [];
+  var valorSensor = 10;
+
+  var maxUmiSaudavel;
+  var minUmiSaudavel;
 
   @override
   void initState() {
     _chartData = getChartData();
     super.initState();
+
+    if (widget.estadoPlanta == "Desenvolvimento Vegetativo") {
+      maxUmiSaudavel = 70;
+      minUmiSaudavel = 50;
+    }
+    if (widget.estadoPlanta == "Germinação") {
+      maxUmiSaudavel = 90;
+      minUmiSaudavel = 80;
+    } else {
+      maxUmiSaudavel = 60;
+      minUmiSaudavel = 40;
+    }
   }
 
   @override
@@ -86,8 +102,8 @@ class _UmidadeState extends State<Umidade> {
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Umidade: 60%',
+                Text(
+                  'Umidade: $valorSensor %',
                   style: TextStyle(fontSize: 25),
                 ),
                 const SizedBox(height: 10),
@@ -95,26 +111,72 @@ class _UmidadeState extends State<Umidade> {
                 SizedBox(
                   height: 50,
                   width: 200,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Saudável!",
-                        style: TextStyle(
-                          fontSize: 25,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Image.asset(
-                        'assets/imagens/checkgood.png',
-                        width: 40,
-                        height: 40,
-                      ),
-                    ],
-                  ),
+                  child: (valorSensor < minUmiSaudavel &&
+                              valorSensor >= minUmiSaudavel - 10) ||
+                          (valorSensor > maxUmiSaudavel &&
+                              valorSensor <= maxUmiSaudavel + 10)
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Sensivel!",
+                              style: TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Image.asset(
+                              'assets/imagens/sensivel.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ],
+                        )
+                      : (valorSensor >= minUmiSaudavel &&
+                              valorSensor <= maxUmiSaudavel)
+                          ? Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Saudável!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/checkgood.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            )
+                          : Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Enferma!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/enferma.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            ),
                 ),
                 const SizedBox(height: 30),
                 const Text(
@@ -174,28 +236,27 @@ class _UmidadeState extends State<Umidade> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                //germinando
-                const Text(
-                  'O nível ideal de umidade para alfaces crespa em estado de germinação em um sistema hidropônico geralmente fica na faixa de 80% a 90%. Manter um ambiente com alta umidade relativa é importante para garantir que as sementes de alface crespa germinem com sucesso e que as plântulas cresçam de maneira saudável.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),
-
-                /*
-                //crescimento vegetativo
-                const Text(
-                  'O nível ideal de umidade para alfaces crespa em estado de crescimento em um sistema hidropônico geralmente varia entre 50% e 70% de umidade relativa. Manter a umidade dentro dessa faixa pode ajudar a criar um ambiente propício para o crescimento saudável das alfaces crespa, minimizando problemas como doenças fúngicas e excesso de umidade.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),*/
-
-                //colheita
-                /*
-                const Text(
-                  'O nível ideal de umidade para alfaces crespa em estado de colheita geralmente fica na faixa de 40% a 60% de umidade relativa. Isso porque durante a fase de colheita das alfaces crespa em um sistema hidropônico, é importante manter a umidade relativamente baixa para evitar problemas como a deterioração das folhas e o crescimento excessivo de fungos.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),*/
+                (widget.estadoPlanta == "Germinação")
+                    ? Text(
+                        'O nível ideal de umidade para alfaces crespa em estado de germinação em um sistema hidropônico geralmente fica na faixa de 80% a 90%. Manter um ambiente com alta umidade relativa é importante para garantir que as sementes de alface crespa germinem com sucesso e que as plântulas cresçam de maneira saudável.',
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 18),
+                      )
+                    : (widget.estadoPlanta == "Desenvolvimento Vegetativo")
+                        ?
+                        //estado crescimento vegetativo
+                        const Text(
+                            'O nível ideal de umidade para alfaces crespa em estado de crescimento em um sistema hidropônico geralmente varia entre 50% e 70% de umidade relativa. Manter a umidade dentro dessa faixa pode ajudar a criar um ambiente propício para o crescimento saudável das alfaces crespa, minimizando problemas como doenças fúngicas e excesso de umidade.',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          )
+                        :
+                        //estado de colheita
+                        const Text(
+                            'O nível ideal de umidade para alfaces crespa em estado de colheita geralmente fica na faixa de 40% a 60% de umidade relativa. Isso porque durante a fase de colheita das alfaces crespa em um sistema hidropônico, é importante manter a umidade relativamente baixa para evitar problemas como a deterioração das folhas e o crescimento excessivo de fungos.',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          ),
               ],
             ),
           ),
@@ -219,3 +280,25 @@ class UmidadeData {
   final double temp;
   final String dias;
 }
+
+
+/*
+Germinação
+80% a 90% == saudável
+70% e 80% && 90% e 100% == sensível
+<11.000 && >19.000 == enferma
+*/
+
+/*
+crescimento vegetativo
+50% e 70% == saudável
+40% e 50% && 70% e 80% == sensível
+<23.000 && >37.000 == enferma
+*/
+
+/*
+colheita 
+40% a 60% == saudável
+30% e 40% && 60% e 70% == sensível
+<11.000 && >19.000 == enferma
+*/

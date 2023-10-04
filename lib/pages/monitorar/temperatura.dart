@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -11,12 +14,48 @@ class Temperatura extends StatefulWidget {
 
 class _TemperaturaState extends State<Temperatura> {
   List<TemperaturaData> _chartData = [];
+  var valorSensor = 0;
+
+  var maxTempSaudavel;
+  var minTempSaudavel;
+
+  var nika;
+
+  late Timer _timer;
 
   @override
   void initState() {
     _chartData = getChartData();
     super.initState();
+
+    if (widget.estadoPlanta == "Desenvolvimento Vegetativo") {
+      maxTempSaudavel = 22;
+      minTempSaudavel = 15;
+    }
+    if (widget.estadoPlanta == "Germinação") {
+      maxTempSaudavel = 25;
+      minTempSaudavel = 15;
+    } else {
+      maxTempSaudavel = 22;
+      minTempSaudavel = 18;
+    }
+
+    _timer = Timer.periodic(Duration(seconds: 2), (timer) {
+      // Generate a random double between 0.0 and 1.0
+      valorSensor = Random().nextInt(100);
+
+      // Update the UI to reflect the new value
+      setState(() {});
+    });
   }
+
+  // void _mudarValorSensor() {
+  //   setState(() {
+  //     _timer = Timer.periodic(Duration(seconds: 2), (timer) {
+  //       valorSensor = Random().nextInt(100);
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -85,35 +124,80 @@ class _TemperaturaState extends State<Temperatura> {
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Temperatura: 22°C',
+                Text(
+                  'Temperatura: $valorSensor °C',
                   style: TextStyle(fontSize: 25),
                 ),
                 const SizedBox(height: 10),
-                // Está saudável!!!!!!
                 SizedBox(
                   height: 50,
                   width: 200,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Saudável!",
-                        style: TextStyle(
-                          fontSize: 25,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Image.asset(
-                        'assets/imagens/checkgood.png',
-                        width: 40,
-                        height: 40,
-                      ),
-                    ],
-                  ),
+                  child: (valorSensor < minTempSaudavel &&
+                              valorSensor >= minTempSaudavel - 5) ||
+                          (valorSensor > maxTempSaudavel &&
+                              valorSensor <= maxTempSaudavel + 5)
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Sensivel!",
+                              style: TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Image.asset(
+                              'assets/imagens/sensivel.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ],
+                        )
+                      : (valorSensor >= minTempSaudavel &&
+                              valorSensor <= maxTempSaudavel)
+                          ? Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Saudável!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/checkgood.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            )
+                          : Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Enferma!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/enferma.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            ),
                 ),
                 const SizedBox(height: 30),
                 const Text(
@@ -172,27 +256,29 @@ class _TemperaturaState extends State<Temperatura> {
                     ],
                   ),
                 ),
+
                 const SizedBox(height: 30),
-                //germinando
-                const Text(
-                  'O nível de temperatura ideal para alfaces em estado de germinação na hidroponia varia um pouco, mas geralmente está na faixa de 20°C a 24°C graus Celsius. Essa faixa de temperatura é considerada ótima para a germinação das sementes de alface.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),
-
-                //gestado vegetativo
-                /*const Text(
-                  'A faixa de temperatura recomendada fica entre 18°C a 22°C. Manter a temperatura dentro dessa faixa é importante para promover o crescimento saudável das alfaces.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),*/
-
-                //colheita
-                /*const Text(
-                  'Manter as alfaces em temperaturas mais baixas, como entre 10 e 18°C, antes da colheita pode ajudar a retardar o crescimento e o amadurecimento das plantas, o que pode ser útil se você deseja garantir a qualidade das alfaces até o momento da colheita.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),*/
+                (widget.estadoPlanta == "Germinação")
+                    ? Text(
+                        'O nível de temperatura ideal para alfaces em estado de germinação na hidroponia varia um pouco, mas geralmente está na faixa de 20°C a 24°C graus Celsius. Essa faixa de temperatura é considerada ótima para a germinação das sementes de alface.',
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 18),
+                      )
+                    : (widget.estadoPlanta == "Desenvolvimento Vegetativo")
+                        ?
+                        //estado crescimento vegetativo
+                        const Text(
+                            'A faixa de temperatura recomendada fica entre 18°C a 22°C. Manter a temperatura dentro dessa faixa é importante para promover o crescimento saudável das alfaces.',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          )
+                        :
+                        //estado de colheita
+                        const Text(
+                            'Manter as alfaces em temperaturas mais baixas, como entre 10 e 18°C, antes da colheita pode ajudar a retardar o crescimento e o amadurecimento das plantas, o que pode ser útil se você deseja garantir a qualidade das alfaces até o momento da colheita.',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          ),
               ],
             ),
           ),
@@ -219,21 +305,21 @@ class TemperaturaData {
 
 /*
 Germinação
-12.000 a 18.000 == saudável
-11.000 a 12.000 && 18.000 a 19.000 == sensível
-<11.000 && >19.000 == enferma
+15 a 25 == saudável
+10 a 15 && 25 a 30 == sensível
+<10 && >30 == enferma
 */
 
 /*
 crescimento vegetativo
-24.000 a 36.000 == saudável
-23.000 a 24.000 && 36.000 a 37.000 == sensível
-<23.000 && >37.000 == enferma
+15°C a 22°C == saudável
+10 a 15 && 22 a 27 == sensível
+<10 && >27 == enferma
 */
 
 /*
 colheita 
-12.000 a 18.000 == saudável
-11.000 a 12.000 && 18.000 a 19.000 == sensível
-<11.000 && >19.000 == enferma
+18 a 22 == saudável
+13 a 18 && 22 a 27 == sensível
+<13 && >27 == enferma
 */

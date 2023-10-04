@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/co2.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/luminosidade.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/ph.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/temperatura.dart';
+import 'package:flutter_hidrocultura/pages/monitorar/umidade.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class Inicial extends StatefulWidget {
@@ -12,6 +15,7 @@ class Inicial extends StatefulWidget {
 }
 
 class _InicialState extends State<Inicial> {
+  // Co2
   void mandarInfosCo2() {
     late String estadoPlanta;
 
@@ -25,6 +29,7 @@ class _InicialState extends State<Inicial> {
     });
   }
 
+  // luminosidade
   void mandarInfosLum() {
     late String estadoPlanta;
 
@@ -35,6 +40,48 @@ class _InicialState extends State<Inicial> {
           context,
           MaterialPageRoute(
               builder: (context) => Luminosidade(estadoPlanta: estadoPlanta)));
+    });
+  }
+
+  //ph
+  void mandarInfosPh() {
+    late String estadoPlanta;
+
+    setState(() {
+      if (widget.estadoPlanta != null) estadoPlanta = widget.estadoPlanta;
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Ph(estadoPlanta: estadoPlanta)));
+    });
+  }
+
+  // temperatura
+  void mandarInfosTemp() {
+    late String estadoPlanta;
+
+    setState(() {
+      if (widget.estadoPlanta != null) estadoPlanta = widget.estadoPlanta;
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Temperatura(estadoPlanta: estadoPlanta)));
+    });
+  }
+
+  // umidade
+  void mandarInfosUmi() {
+    late String estadoPlanta;
+
+    setState(() {
+      if (widget.estadoPlanta != null) estadoPlanta = widget.estadoPlanta;
+
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Umidade(estadoPlanta: estadoPlanta)));
     });
   }
 
@@ -137,9 +184,7 @@ class _InicialState extends State<Inicial> {
                     children: <Widget>[
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'temperatura');
-                              },
+                              onPressed: () => mandarInfosTemp(),
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.black54,
                                 backgroundColor:
@@ -218,9 +263,7 @@ class _InicialState extends State<Inicial> {
                     children: <Widget>[
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'ph');
-                              },
+                              onPressed: () => mandarInfosPh(),
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.black54,
                                 backgroundColor:
@@ -303,9 +346,7 @@ class _InicialState extends State<Inicial> {
                     children: <Widget>[
                       Expanded(
                           child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'umidade');
-                              },
+                              onPressed: () => mandarInfosUmi(),
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.black54,
                                 backgroundColor:

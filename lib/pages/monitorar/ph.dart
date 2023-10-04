@@ -13,10 +13,25 @@ class _PhState extends State<Ph> {
   List<PhData> _chartData = [];
   var valorSensor = 6.7;
 
+  var maxPhSaudavel;
+  var minPhSaudavel;
+
   @override
   void initState() {
     _chartData = getChartData();
     super.initState();
+
+    if (widget.estadoPlanta == "Desenvolvimento Vegetativo") {
+      maxPhSaudavel = 6.5;
+      minPhSaudavel = 5.8;
+    }
+    if (widget.estadoPlanta == "Germinação") {
+      maxPhSaudavel = 6.5;
+      minPhSaudavel = 5.5;
+    } else {
+      maxPhSaudavel = 6.0;
+      minPhSaudavel = 5.5;
+    }
   }
 
   @override
@@ -86,8 +101,8 @@ class _PhState extends State<Ph> {
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Ph 6,2',
+                Text(
+                  'Ph $valorSensor ',
                   style: TextStyle(fontSize: 25),
                 ),
                 const SizedBox(height: 10),
@@ -95,26 +110,72 @@ class _PhState extends State<Ph> {
                 SizedBox(
                   height: 50,
                   width: 200,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Saudável!",
-                        style: TextStyle(
-                          fontSize: 25,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      Image.asset(
-                        'assets/imagens/checkgood.png',
-                        width: 40,
-                        height: 40,
-                      ),
-                    ],
-                  ),
+                  child: (valorSensor < minPhSaudavel &&
+                              valorSensor >= minPhSaudavel - 1.0) ||
+                          (valorSensor > maxPhSaudavel &&
+                              valorSensor <= maxPhSaudavel + 1.0)
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Sensivel!",
+                              style: TextStyle(
+                                fontSize: 25,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Image.asset(
+                              'assets/imagens/sensivel.png',
+                              width: 40,
+                              height: 40,
+                            ),
+                          ],
+                        )
+                      : (valorSensor >= minPhSaudavel &&
+                              valorSensor <= maxPhSaudavel)
+                          ? Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Saudável!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/checkgood.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            )
+                          : Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Enferma!",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Image.asset(
+                                  'assets/imagens/enferma.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ],
+                            ),
                 ),
                 const SizedBox(height: 30),
                 const Text(
@@ -174,26 +235,27 @@ class _PhState extends State<Ph> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                //germinando
-                const Text(
-                  'Durante o estágio inicial de crescimento das mudas, o pH recomendado é de 5,5 a 6,5. Manter o pH nessa faixa ajuda a garantir a absorção adequada de nutrientes essenciais para o desenvolvimento das raízes e o crescimento das folhas.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),
-
-                //desenvolvimento vegetativo
-                /*const Text(
-                  'Durante o desenvolvimento vegetativo do alface na hidroponia, o nível de pH ideal também está na faixa de 5,5 a 6,5, assim como na fase de germinação. Manter o pH dentro dessa faixa é importante para garantir a absorção adequada de nutrientes pelas plantas, o que é essencial para o crescimento saudável das alfaces.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),*/
-
-                //colheita
-                /*const Text(
-                  'Durante a fase de colheita das alfaces na hidroponia, o pH da solução nutritiva não é tão crítico quanto nas fases de germinação e crescimento vegetativo. Neste estágio, o pH pode ser mantido na faixa de 5,5 a 6,5, que é a mesma faixa recomendada para o desenvolvimento vegetativo, pois ainda é uma faixa geralmente aceitável para a absorção de nutrientes pelas plantas.',
-                  textAlign: TextAlign.justify,
-                  style: TextStyle(fontSize: 18),
-                ),*/
+                (widget.estadoPlanta == "Germinação")
+                    ? Text(
+                        'Durante o estágio inicial de crescimento das mudas, o pH recomendado é de 5,5 a 6,5. Manter o pH nessa faixa ajuda a garantir a absorção adequada de nutrientes essenciais para o desenvolvimento das raízes e o crescimento das folhas.',
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 18),
+                      )
+                    : (widget.estadoPlanta == "Desenvolvimento Vegetativo")
+                        ?
+                        //estado crescimento vegetativo
+                        const Text(
+                            'Durante o desenvolvimento vegetativo do alface na hidroponia, o nível de pH ideal também está na faixa de 5,5 a 6,5, assim como na fase de germinação. Manter o pH dentro dessa faixa é importante para garantir a absorção adequada de nutrientes pelas plantas, o que é essencial para o crescimento saudável das alfaces.',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          )
+                        :
+                        //estado de colheita
+                        const Text(
+                            'Durante a fase de colheita das alfaces na hidroponia, o pH da solução nutritiva não é tão crítico quanto nas fases de germinação e crescimento vegetativo. Neste estágio, o pH pode ser mantido na faixa de 5,5 a 6,5, que é a mesma faixa recomendada para o desenvolvimento vegetativo, pois ainda é uma faixa geralmente aceitável para a absorção de nutrientes pelas plantas.',
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(fontSize: 18),
+                          ),
               ],
             ),
           ),

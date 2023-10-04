@@ -17,7 +17,7 @@ class _Co2State extends State<Co2> {
   var maxCo2Saudavel;
   @override
   void initState() {
-    valorSensor = 100;
+    valorSensor = 0;
     _chartData = getChartData();
     super.initState();
 
@@ -104,6 +104,7 @@ class _Co2State extends State<Co2> {
                 SizedBox(
                   height: 50,
                   width: 200,
+                  //sensivel
                   child: (valorSensor < 300 && valorSensor >= 200) ||
                           (valorSensor > maxCo2Saudavel &&
                               valorSensor <= maxCo2Saudavel + 100)
@@ -293,8 +294,7 @@ de 300 a 200 && 800 a 900 == sensivel
 /* 
 se estado colheita:
 de 300ppm a 500ppm == saudavel 
-de 300 a 200 && 500 a 600 == sensivel.
-
+de 300 a 200 && 500 a 600 == sensivel
 <200 a >600 == enferma*/
 
 

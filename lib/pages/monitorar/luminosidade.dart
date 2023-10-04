@@ -11,12 +11,13 @@ class Luminosidade extends StatefulWidget {
 
 class _LuminosidadeState extends State<Luminosidade> {
   List<LuminosidadeData> _chartData = [];
-  var valorSensor = 36230;
+  var valorSensor = 0;
 
   var maxLumSaudavel;
   var minLumSaudavel;
   @override
   void initState() {
+    var valorSensor = 3600;
     _chartData = getChartData();
     super.initState();
 
@@ -100,7 +101,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                   'Luminosidade: $valorSensor lux',
                   style: TextStyle(fontSize: 25),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10),
                 SizedBox(
                   height: 50,
                   width: 200,
@@ -190,7 +191,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                     ]),
                 const SizedBox(height: 30),
 
-                // Esse container é onde mostra o estágio da planta e tem o botão do lado
+                // Esse container é onde mostra o estágio da planta
                 Container(
                   decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 180, 220, 156),
@@ -247,7 +248,6 @@ class _LuminosidadeState extends State<Luminosidade> {
                             style: TextStyle(fontSize: 18),
                           )
                         :
-
                         //estado de colheita
                         const Text(
                             'Durante a fase de colheita das alfaces crespa em um sistema hidropônico, a luminosidade ideal ainda é importante para manter a qualidade das folhas. A intensidade luminosa adequada pode ajudar a manter a cor, textura e sabor das folhas. Para alfaces crespa em estado de colheita, recomenda-se uma intensidade luminosa na faixa de 200 a 400 micro-moles de luz por metro quadrado por segundo (μmol/m²/s), o que equivale a aproximadamente 12.000 a 24.000 lux. Geralmente, fornecer de 12 a 16 horas de luz por dia é apropriado para a fase de crescimento e colheita de alfaces crespa.',

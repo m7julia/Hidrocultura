@@ -15,6 +15,24 @@ class Inicial extends StatefulWidget {
 }
 
 class _InicialState extends State<Inicial> {
+  String _temperature = "temperature goes here";
+  final _database = FirebaseDatabase.instance.ref();
+
+  @override
+  void initState() {
+    super.initState();
+    _activateListeners();
+  }
+
+  void _activateListeners() {
+    _database.child("temperatura/agora").onValue.listen((event) {
+      final String temperatura = event.snapshot.value.toString();
+      setState(() {
+        _temperature = temperatura.substring(21, temperatura.length - 1);
+      });
+    });
+  }
+
   // Co2
   void mandarInfosCo2() {
     late String estadoPlanta;
@@ -193,14 +211,14 @@ class _InicialState extends State<Inicial> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: const Column(children: [
-                                Image(
+                              child: Column(children: [
+                                const Image(
                                   image: AssetImage(
                                       'assets/imagens/icon_temperatura.png'),
                                   height: 70,
                                   width: 50,
                                 ),
-                                Text(
+                                const Text(
                                   "Temperatura",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -208,9 +226,9 @@ class _InicialState extends State<Inicial> {
                                   ),
                                 ),
                                 Text(
-                                  "22°C",
+                                  "$_temperature°C",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                   ),
                                 ), //Tex

@@ -1,3 +1,5 @@
+// import 'dart:async';
+// import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/co2.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/luminosidade.dart';
@@ -5,6 +7,8 @@ import 'package:flutter_hidrocultura/pages/monitorar/ph.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/temperatura.dart';
 import 'package:flutter_hidrocultura/pages/monitorar/umidade.dart';
 import 'package:firebase_database/firebase_database.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import '../firebase_options.dart';
 
 class Inicial extends StatefulWidget {
   String estadoPlanta;
@@ -16,6 +20,11 @@ class Inicial extends StatefulWidget {
 
 class _InicialState extends State<Inicial> {
   String _temperature = "temperature goes here";
+  String _co2 = "co2 goes here";
+  String _luminosity = "luminosity goes here";
+  String _ph = "ph goes here";
+  String _humidity = "humidity goes here";
+
   final _database = FirebaseDatabase.instance.ref();
 
   @override
@@ -29,6 +38,30 @@ class _InicialState extends State<Inicial> {
       final String temperatura = event.snapshot.value.toString();
       setState(() {
         _temperature = temperatura.substring(21, temperatura.length - 1);
+      });
+    });
+    _database.child("co2/agora").onValue.listen((event) {
+      final String co2 = event.snapshot.value.toString();
+      setState(() {
+        _co2 = co2.substring(21, co2.length - 1);
+      });
+    });
+    _database.child("luminosidade/agora").onValue.listen((event) {
+      final String luminosidade = event.snapshot.value.toString();
+      setState(() {
+        _luminosity = luminosidade.substring(21, luminosidade.length - 1);
+      });
+    });
+    _database.child("ph/agora").onValue.listen((event) {
+      final String ph = event.snapshot.value.toString();
+      setState(() {
+        _ph = ph.substring(21, ph.length - 1);
+      });
+    });
+    _database.child("umidade/agora").onValue.listen((event) {
+      final String umidade = event.snapshot.value.toString();
+      setState(() {
+        _humidity = umidade.substring(21, umidade.length - 1);
       });
     });
   }
@@ -248,14 +281,14 @@ class _InicialState extends State<Inicial> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: const Column(children: [
-                                Image(
+                              child: Column(children: [
+                                const Image(
                                   image: AssetImage(
                                       'assets/imagens/icon_luminosidade.png'),
                                   height: 70,
                                   width: 50,
                                 ),
-                                Text(
+                                const Text(
                                   "Luminosidade",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -263,9 +296,9 @@ class _InicialState extends State<Inicial> {
                                   ),
                                 ),
                                 Text(
-                                  "2.500 lux",
+                                  "$_luminosity lux",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                   ),
                                 ), //Tex
@@ -290,14 +323,14 @@ class _InicialState extends State<Inicial> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: const Column(children: [
-                                Image(
+                              child: Column(children: [
+                                const Image(
                                   image:
                                       AssetImage('assets/imagens/icon_ph.png'),
                                   height: 70,
                                   width: 50,
                                 ),
-                                Text(
+                                const Text(
                                   "PH",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -305,9 +338,9 @@ class _InicialState extends State<Inicial> {
                                   ),
                                 ),
                                 Text(
-                                  "6,2",
+                                  _ph,
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                   ),
                                 ), //Tex
@@ -327,14 +360,14 @@ class _InicialState extends State<Inicial> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: const Column(children: [
-                                Image(
+                              child: Column(children: [
+                                const Image(
                                   image:
                                       AssetImage('assets/imagens/icon_co2.png'),
                                   height: 70,
                                   width: 50,
                                 ),
-                                Text(
+                                const Text(
                                   "CO2",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -342,9 +375,9 @@ class _InicialState extends State<Inicial> {
                                   ),
                                 ),
                                 Text(
-                                  "1220ppm",
+                                  "$_co2 ppm",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                   ),
                                 ), //Tex
@@ -373,14 +406,14 @@ class _InicialState extends State<Inicial> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: const Column(children: [
-                                Image(
+                              child: Column(children: [
+                                const Image(
                                   image: AssetImage(
                                       'assets/imagens/icon_umidade.png'),
                                   height: 70,
                                   width: 50,
                                 ),
-                                Text(
+                                const Text(
                                   "Umidade",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -388,9 +421,9 @@ class _InicialState extends State<Inicial> {
                                   ),
                                 ),
                                 Text(
-                                  "60%",
+                                  "$_humidity%",
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                   ),
                                 ), //Tex

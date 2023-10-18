@@ -13,7 +13,7 @@ Data de término: ...
 <img loading="languages" src="https://img.shields.io/github/languages/top/m7julia/Hidrocultura?color=%23CA4210"/>
 <img loading="languages" src="https://img.shields.io/github/stars/m7julia/Hidrocultura?color=%23DA653A"/>
 </p>
-<br/>
+
 
 # 📋 Descrição
 

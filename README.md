@@ -36,10 +36,23 @@ Data de término: ...
 <h2>
   ⚙ Configurações e Tutoriais 
 </h2>
+<div>
+<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjU1OHowcWdzYTdud3lsYXM2cnVieHhkdnFtNWNidWl4c3J2cTZjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AGIRxhvAdCsB0JHBuV/giphy.gif" align ="right" height="380px">
+
+No primeiro uso do aplicativo, é necessário configurá-lo de acordo com o tipo de cultivo que se está trabalhando. O aplicativo oferece várias opções, como: <br/> <br/>
+ 🥬 alface 🍅 tomate 🌿 rúcula  🍓 morango. <br/> <br/>
+Essa configuração inicial é fundamental, pois estabelece os parâmetros ideais com base nas características de cada uma das hortaliças.<br/>
+<br/>
+
+Após a configuração inicial, o usuário tem acesso a telas de tutoriais que incluem:
+
+* Primeiros Passos (para orientações sobre o plantio da hortaliça).
+* Germinação (para inserção da planta dentro do sistema).
+* Já Plantei (que permite pular diretamente para a tela inicial do aplicativo).
+</div>
 
 
-
-
+<br/>
 Autores:  <br/>
 Felipe Stolze Vazquez;  <br/>
 Maria Alice Ferreira Pereira;  <br/>

@@ -14,9 +14,7 @@ Data de término: ...
 <img loading="languages" src="https://img.shields.io/github/stars/m7julia/Hidrocultura?color=%23DA653A"/>
 </p>
 
-
 # 📋 Descrição
-
 <h3 align="center"> 
     ❓  Já Pensou em ter um Sistema de Monitoramento Remoto de Plantações Hidropônicas  ❓
 </h3>
@@ -27,19 +25,19 @@ Data de término: ...
 
 ---
 
-
-<h1>
- 🪂 Aplicativo
-</h1>
+ # 🪂 Aplicativo
 <p>A aplicação inclui telas de tutoriais para orientar o usuário em seu primeiro uso, monitoramento geral do sistema de cultivo e monitoramento específico de cada um dos sensores no sistema, fornecendo gráficos de variação e informações adicionais. Além disso, a aplicação oferece funcionalidades de visão computacional para o reconhecimento de imagens. <br/>
  🤓 Vou explicar como todas essas funcionalidades funcionam a seguir:</p>
 <h2>
   ⚙ Configurações e Tutoriais 
 </h2>
 <div>
+ <img src="https://i.imgur.com/1cA3UQY.png"  align="right" width="170"> <img src="https://i.imgur.com/KbfR5nw.png" align="right" width="170"> 
+ <p>
 No primeiro uso do aplicativo, é necessário configurá-lo de acordo com o tipo de cultivo que se está trabalhando. O aplicativo oferece várias opções, como: <br/> <br/>
  🥬 alface 🍅 tomate 🌿 rúcula  🍓 morango. <br/> <br/>
 Essa configuração inicial é fundamental, pois estabelece os parâmetros ideais com base nas características de cada uma das hortaliças.<br/>
+
 <br/>
 
 Após a configuração inicial, o usuário tem acesso a telas de tutoriais que incluem:
@@ -47,7 +45,17 @@ Após a configuração inicial, o usuário tem acesso a telas de tutoriais que i
 * Primeiros Passos (para orientações sobre o plantio da hortaliça).
 * Germinação (para inserção da planta dentro do sistema).
 * Já Plantei (que permite pular diretamente para a tela inicial do aplicativo).
+</p>
 </div>
+
+Essas telas estão disponíveis na pasta `tutoriais` dentro da pasta `pages`
+
+> [!IMPORTANT]
+> Essas funcionalidades ainda estão em desenvolvimento 
+<h2>
+  📟 Monitoramento
+</h2>
+
 
 
 <br/>

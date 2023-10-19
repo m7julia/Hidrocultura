@@ -37,8 +37,6 @@ Data de término: ...
   ⚙ Configurações e Tutoriais 
 </h2>
 <div>
-<img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjU1OHowcWdzYTdud3lsYXM2cnVieHhkdnFtNWNidWl4c3J2cTZjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AGIRxhvAdCsB0JHBuV/giphy.gif" align ="right" height="380px">
-
 No primeiro uso do aplicativo, é necessário configurá-lo de acordo com o tipo de cultivo que se está trabalhando. O aplicativo oferece várias opções, como: <br/> <br/>
  🥬 alface 🍅 tomate 🌿 rúcula  🍓 morango. <br/> <br/>
 Essa configuração inicial é fundamental, pois estabelece os parâmetros ideais com base nas características de cada uma das hortaliças.<br/>

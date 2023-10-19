@@ -15,6 +15,7 @@ Data de término: ...
 </p>
 
 # 📋 Descrição
+
 <h3 align="center"> 
     ❓  Já Pensou em ter um Sistema de Monitoramento Remoto de Plantações Hidropônicas  ❓
 </h3>
@@ -26,6 +27,7 @@ Data de término: ...
 ---
 
  # 🪂 Aplicativo
+ 
 <p>A aplicação inclui telas de tutoriais para orientar o usuário em seu primeiro uso, monitoramento geral do sistema de cultivo e monitoramento específico de cada um dos sensores no sistema, fornecendo gráficos de variação e informações adicionais. Além disso, a aplicação oferece funcionalidades de visão computacional para o reconhecimento de imagens. <br/>
  🤓 Vou explicar como todas essas funcionalidades funcionam a seguir:</p>
 <h2>
@@ -51,11 +53,15 @@ Após a configuração inicial, o usuário tem acesso a telas de tutoriais que i
 Essas telas estão disponíveis na pasta `tutoriais` dentro da pasta `pages`
 
 > [!IMPORTANT]
-> Essas funcionalidades ainda estão em desenvolvimento 
+> Essas funcionalidades ainda estão em desenvolvimento
+
 <h2>
   📟 Monitoramento
 </h2>
 
+<h2>
+  📊 Detalhes de Monitoramento
+</h2>
 
 
 <br/>

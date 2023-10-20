@@ -58,7 +58,7 @@ Essas telas estão disponíveis na pasta `tutoriais` dentro da pasta `pages`
 <h2>
   📟 Monitoramento
 </h2>
-
+<img src="https://postimg.cc/fkbtjjWB">
 <h2>
   📊 Detalhes de Monitoramento
 </h2>

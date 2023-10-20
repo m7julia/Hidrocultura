@@ -62,11 +62,11 @@ Essas telas estão disponíveis na pasta `tutoriais` dentro da pasta `pages`
 Como brevemente dito, o aplicativo tem como principal funcionalidade o monitoramento.
 em uma estrutura física é instalado os seguintes sensores:
 
-- Temperatura
-- Luminosidade 
-- Ph 
-- Co2 
-- Umidade 
+- 🌡️ Temperatura
+- 💡 Luminosidade 
+- 🧪 Ph 
+- ☁️ Co2 
+- 💧 Umidade 
 
 <h3>Ligando os Sensores </h3> 
 

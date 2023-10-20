@@ -42,7 +42,7 @@ class _TemperaturaState extends State<Temperatura> {
 
     _timer = Timer.periodic(Duration(seconds: 2), (timer) {
       // Generate a random double between 0.0 and 1.0
-      valorSensor = Random().nextInt(100);
+      valorSensor = Random().nextInt(45);
 
       // Update the UI to reflect the new value
       setState(() {});
@@ -66,7 +66,7 @@ class _TemperaturaState extends State<Temperatura> {
           child: Center(
             child: Column(
               children: <Widget>[
-                const SizedBox(height: 10),
+                SizedBox(height: 15),
                 Card(
                   //Botoes -->>
                   elevation: 0,
@@ -75,7 +75,28 @@ class _TemperaturaState extends State<Temperatura> {
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        flex: 1,
+                        flex: 2,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'umidade');
+                            },
+                            style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(10)),
+                            child: const Icon(
+                              Icons.arrow_back_ios_new_rounded,
+                              color: Color.fromARGB(255, 120, 144, 72),
+                              size: 20.0,
+                            )),
+                      ),
+                      Container(
+                        width: 80,
+                      ),
+                      Expanded(
+                        flex: 2,
                         child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(context, 'inicial');
@@ -87,16 +108,16 @@ class _TemperaturaState extends State<Temperatura> {
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(10)),
                             child: const Icon(
-                              Icons.arrow_back_ios_new_rounded,
+                              Icons.home_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
-                              size: 15.0,
+                              size: 25.0,
                             )),
                       ),
                       Container(
-                        width: 220,
+                        width: 80,
                       ),
                       Expanded(
-                        flex: 1,
+                        flex: 2,
                         child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(context, 'luminosidade');
@@ -110,13 +131,13 @@ class _TemperaturaState extends State<Temperatura> {
                             child: const Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
-                              size: 15.0,
+                              size: 20.0,
                             )),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 25),
                 Image.asset(
                   'assets/imagens/icon_temperatura.png',
                   width: 150,

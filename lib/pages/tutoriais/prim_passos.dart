@@ -106,6 +106,11 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                               child: Center(
                                 child: Text("Algodão Hidrófilo"),
                               )),
+                          DropdownMenuItem<String>(
+                              value: "4",
+                              child: Center(
+                                child: Text("Fibra de lã de rocha"),
+                              )),
                         ],
                         onChanged: (_value) => {
                           print(_value.toString()),
@@ -143,7 +148,7 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                                     'assets/imagens/espumafenolica.jpeg')),
                             SizedBox(height: 30), //espaço entre paragrafos
                             Text(
-                              '1. Lave a espuma em água corrente, esse passo serve para retirar resíduos de fabricação que ainda estão presentes na espuma;',
+                              '1. Lave a espuma em água corrente, esse passo serve para retirar resíduos de fabricação que ainda estão presentes na espuma.',
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 16,
@@ -151,7 +156,7 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                             ),
                             SizedBox(height: 30), //espaço entre paragrafos
                             Text(
-                              '2. Faça furos de no máximo 1cm de diâmetro e 1 cm de profundidade na esponja, deixando espaçamentos entre eles, preferencialmente faça os furos de forma cônica para acomodar melhor as sementes;',
+                              '2. Faça furos de no máximo 1cm de diâmetro e 1 cm de profundidade na esponja deixando espaçamentos entre eles, preferencialmente faça os furos de forma cônica para acomodar melhor as sementes.',
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 16,
@@ -159,7 +164,7 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                             ),
                             SizedBox(height: 30), //espaço entre paragrafos
                             Text(
-                              '3. Coloque as sementes em cada furo até que encostem no fundo; Dependendo da  hortaliça pode ser necessário mais de uma semente por furo;',
+                              '3. Coloque as sementes em cada furo até que encostem no fundo; Dependendo da  hortaliça pode ser necessário mais de uma semente por furo.',
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 16,
@@ -167,7 +172,7 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                             ),
                             SizedBox(height: 30), //espaço entre paragrafos
                             Text(
-                              '4. Posicione a espuma com as sementes em um local sombreado, se certificando sempre da umidade da espuma, com o auxílio de um borrifador de água;',
+                              '4. Posicione a espuma com as sementes em um local sombreado se certificando sempre da umidade da espuma com o auxílio de um borrifador de água.',
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 16,
@@ -258,6 +263,61 @@ class _PrimeirosPassosState extends State<PrimeirosPassos> {
                                     'assets/imagens/jardineiroTriste.png')),
                             SizedBox(
                               height: 20,
+                            ),
+                          ],
+                        ),
+                      )
+                    : Text(" "),
+                value == "4"
+                    ? Card(
+                        elevation: 0,
+                        color: Colors.transparent,
+                        surfaceTintColor: Colors.white,
+                        child: Column(
+                          children: [
+                            SizedBox(height: 30), //espaço entre paragrafos
+                            Text(
+                              "Fibra de lã de rocha:",
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(height: 30), //espaço entre paragrafos
+
+                            Image(
+                                image: AssetImage(
+                                    'assets/imagens/espumafenolica.jpeg')),
+                            SizedBox(height: 30), //espaço entre paragrafos
+                            Text(
+                              '1. Umideça a placa em água corrente, esse passo serve para retirar resíduos de fabricação que ainda estão presentes na fibra.',
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            SizedBox(height: 30), //espaço entre paragrafos
+                            Text(
+                              '2. Faça furos de no máximo 1cm de diâmetro e 1 cm de profundidade na fibra deixando espaçamentos entre eles, preferencialmente faça os furos de forma cônica para acomodar melhor as sementes.',
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            SizedBox(height: 30), //espaço entre paragrafos
+                            Text(
+                              '3. Coloque as sementes em cada furo até que encostem no fundo; Dependendo da  hortaliça pode ser necessário mais de uma semente por furo.',
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                            SizedBox(height: 30), //espaço entre paragrafos
+                            Text(
+                              '4. Umideça novamente a placa com as sementes e a-posicione em um local sombreado se certificando sempre da sua umidade com o auxílio de um borrifador de água.',
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
                             ),
                           ],
                         ),

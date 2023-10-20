@@ -39,7 +39,7 @@ class _LuminosidadeState extends State<Luminosidade> {
           child: Center(
             child: Column(
               children: <Widget>[
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
                 Card(
                   //Botoes -->>
                   elevation: 0,
@@ -48,7 +48,7 @@ class _LuminosidadeState extends State<Luminosidade> {
                   child: Row(
                     children: <Widget>[
                       Expanded(
-                        flex: 1,
+                        flex: 2,
                         child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(context, 'temperatura');
@@ -62,14 +62,35 @@ class _LuminosidadeState extends State<Luminosidade> {
                             child: const Icon(
                               Icons.arrow_back_ios_new_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
-                              size: 15.0,
+                              size: 20.0,
                             )),
                       ),
                       Container(
-                        width: 220,
+                        width: 80,
                       ),
                       Expanded(
-                        flex: 1,
+                        flex: 2,
+                        child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'inicial');
+                            },
+                            style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.black,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 180, 220, 156),
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(10)),
+                            child: const Icon(
+                              Icons.home_rounded,
+                              color: Color.fromARGB(255, 120, 144, 72),
+                              size: 25.0,
+                            )),
+                      ),
+                      Container(
+                        width: 80,
+                      ),
+                      Expanded(
+                        flex: 2,
                         child: ElevatedButton(
                             onPressed: () {
                               Navigator.pushNamed(context, 'ph');
@@ -83,13 +104,13 @@ class _LuminosidadeState extends State<Luminosidade> {
                             child: const Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Color.fromARGB(255, 120, 144, 72),
-                              size: 15.0,
+                              size: 20.0,
                             )),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 25),
                 Image.asset(
                   'assets/imagens/icon_luminosidade.png',
                   width: 150,

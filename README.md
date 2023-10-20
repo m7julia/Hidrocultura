@@ -58,7 +58,22 @@ Essas telas estão disponíveis na pasta `tutoriais` dentro da pasta `pages`
 <h2>
   📟 Monitoramento
 </h2>
-<img src="https://i.imgur.com/k7Ymf2U.png" width="200px">
+
+Como brevemente dito, o aplicativo tem como principal funcionalidade o monitoramento.
+em uma estrutura física é instalado os seguintes sensores:
+
+- Temperatura
+- Luminosidade 
+- Ph 
+- Co2 
+- Umidade 
+
+<h3>Ligando os Sensores </h3> 
+
+Estamos trabalhando com os seguintes sensores:
+
+<img src="https://i.imgur.com/k7Ymf2U.png" width="150px">
+
 <h2>
   📊 Detalhes de Monitoramento
 </h2>

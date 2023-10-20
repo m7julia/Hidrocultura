@@ -71,12 +71,12 @@ em uma estrutura física é instalado os seguintes sensores:
 <h3>Ligando os Sensores </h3> 
 
 Estamos trabalhando com os seguintes sensores:
-
+<div>
 <img src="https://i.imgur.com/k7Ymf2U.png" width="150px">
 <img src="https://i.imgur.com/YG9HHCv.png" width="150px">
 <img src="https://i.imgur.com/sHEVmJw.png" width="150px">
 <img src="https://i.imgur.com/oaRJ01M.png" width="150px">
-
+</div>
 
 <h2>
   📊 Detalhes de Monitoramento

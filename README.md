@@ -21,7 +21,7 @@ Data de término: ...
 </h3>
 <p>
   Pois é! 😁 Embora (ainda) pouco comum, essa é a proposta do nosso projeto. <br/>
-  📲 Um aplicativo para monitorar e analisar as condições de cultivo das plantas dentro de um sistema hidropônico. <br/>
+  Um aplicativo para monitorar e analisar as condições de cultivo das plantas dentro de um sistema hidropônico. <br/>
 </p>
 
 ---

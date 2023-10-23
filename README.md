@@ -17,7 +17,7 @@ Data de término: ...
 # 📋 Descrição
 
 <h3 align="center"> 
-    ❓  Já Pensou em ter um Sistema de Monitoramento Remoto de Plantações Hidropônicas  ❓
+❓ Já Pensou em ter um Sistema de Monitoramento Remoto de Plantações Hidropônicas ❓
 </h3>
 <p>
   Pois é! 😁 Embora (ainda) pouco comum, essa é a proposta do nosso projeto. <br/>

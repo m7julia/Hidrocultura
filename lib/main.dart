@@ -59,9 +59,7 @@ class MyApp extends StatelessWidget {
         'ph': (context) => Ph(
               estadoPlanta: "",
             ),
-        'co2': (context) => Co2(
-              estadoPlanta: "",
-            ),
+        'co2': (context) => Co2(estadoPlanta: ""),
         'camera': (context) => const Camera()
       },
     );

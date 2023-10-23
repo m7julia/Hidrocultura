@@ -19,11 +19,11 @@ class Inicial extends StatefulWidget {
 }
 
 class _InicialState extends State<Inicial> {
-  String _temperature = "temperature goes here";
-  String _co2 = "co2 goes here";
-  String _luminosity = "luminosity goes here";
-  String _ph = "ph goes here";
-  String _humidity = "humidity goes here";
+  String _temperature = "conectando...";
+  String _co2 = "conectando...";
+  String _luminosity = "conectando...";
+  String _ph = "conectando...";
+  String _humidity = "conectando...";
 
   final _database = FirebaseDatabase.instance.ref();
 

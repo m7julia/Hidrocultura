@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'dart:convert';
 
 class Co2 extends StatefulWidget {
   String estadoPlanta;
@@ -10,16 +12,64 @@ class Co2 extends StatefulWidget {
   _Co2State createState() => _Co2State();
 }
 
+final _database = FirebaseDatabase.instance.ref();
+var _jsonString = '';
+
 class _Co2State extends State<Co2> {
+  String _valorSensor = '1000';
   List<Co2Data> _chartData = [];
+
+  void _activateListeners() async {
+    _database.child("co2/agora").onValue.listen((event) {
+      final String valorSensor = event.snapshot.value.toString();
+      setState(() {
+        _valorSensor = valorSensor.substring(21, valorSensor.length - 1);
+      });
+    });
+
+    _database.child("co2/todos").onValue.listen((event) {
+      final Map<dynamic, dynamic>? dataCo2 =
+          event.snapshot.value as Map<dynamic, dynamic>?;
+      if (dataCo2 != null) {
+        setState(() {
+          parseObjectReceivetoCo2Data(dataCo2);
+        });
+      }
+    });
+  }
+
+  void parseObjectReceivetoCo2Data(Map<dynamic, dynamic>? object) {
+    if (object == null) return;
+    List<Co2Data> charData = [];
+
+    object.forEach((key, value) {
+      Co2Data current = Co2Data(double.parse(value.toString()), '$key');
+      charData.add(current);
+    });
+
+    setState(() => {_chartData = charData});
+  }
+
+  final _database = FirebaseDatabase.instance.ref();
+
   var valorSensor = 0;
 
   var maxCo2Saudavel;
+
   @override
   void initState() {
-    valorSensor = 0;
-    _chartData = getChartData();
     super.initState();
+    valorSensor = 0;
+
+    _activateListeners();
+
+    // try {
+    //   parseJsonToList(_jsonString);
+    //   //_chartData = await parseJsonToList(_jsonString);
+    // } catch (error) {
+    //   _chartData = getChartData();
+    //   print('linha 54 $_jsonString');
+    // }
 
     if (widget.estadoPlanta == "Desenvolvimento Vegetativo") {
       maxCo2Saudavel = 800;
@@ -118,7 +168,7 @@ class _Co2State extends State<Co2> {
                 const SizedBox(height: 20),
 
                 Text(
-                  'CO2: $valorSensor ppm',
+                  'CO2: $_valorSensor ppm',
                   style: TextStyle(fontSize: 25),
                 ),
                 SizedBox(height: 10),
@@ -133,13 +183,13 @@ class _Co2State extends State<Co2> {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                               "Sensivel!",
                               style: TextStyle(
                                 fontSize: 25,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 15,
                             ),
                             Image.asset(
@@ -175,7 +225,7 @@ class _Co2State extends State<Co2> {
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   "Enferma!",
                                   style: TextStyle(
                                     fontSize: 25,
@@ -227,7 +277,7 @@ class _Co2State extends State<Co2> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Text(
+                          const Text(
                             "Sua planta está em:",
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -282,7 +332,7 @@ class _Co2State extends State<Co2> {
 
   List<Co2Data> getChartData() {
     final List<Co2Data> chartData = [
-      Co2Data(1200, 'Dia 1'),
+      Co2Data(double.parse(_valorSensor), 'Dia 1'),
       Co2Data(1200, 'Dia 2'),
       Co2Data(1220, 'Dia 3'),
       Co2Data(1250, 'Dia 4'),
@@ -297,6 +347,21 @@ class Co2Data {
   final double co2;
   final String dias;
 }
+
+Future<List<Co2Data>> parseJsonToList(String jsonString) async {
+  print('String Json no método $jsonString');
+  print('passando');
+  Map<String, dynamic> jsonMap = jsonDecode(jsonString);
+
+  List<Co2Data> dataObjects = [];
+  jsonMap.forEach((key, value) {
+    dataObjects.add(Co2Data(value, key));
+  });
+  print('_dataObjects linha 347');
+  //return dataObjects;
+  return dataObjects;
+}
+
 
 
 //Anotações:

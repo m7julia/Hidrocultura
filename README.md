@@ -81,10 +81,16 @@ Estamos trabalhando com os seguintes sensores:
 <h2>
   📊 Detalhes de Monitoramento
 </h2>
+<div>
+ 
+Cada sensor possui uma tela de detalhamento na qual é possível obter informações adicionais sobre os níveis e as condições ideais de cultivo. É possível, por exemplo, acompanhar a variação da `temperatura` nos últimos dias. Isso é realizado por meio de um gráfico gerado com a biblioteca  [FlutterCharts](https://pub.dev/packages/syncfusion_flutter_charts#flutter-charts-library), que recebe os valores de um vetor provenientes do banco de dados.
 
 
-<br/>
+</div>
+
 Autores:  <br/>
 Felipe Stolze Vazquez;  <br/>
 Maria Alice Ferreira Pereira;  <br/>
 Maria Júlia Hofstetter Trevisan Pereira.
+
+
